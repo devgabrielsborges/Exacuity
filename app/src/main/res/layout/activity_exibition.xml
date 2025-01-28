@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Barra Superior -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/black"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_acuidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20/15"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Área Principal (LETRAS) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A D F G W"
+            android:textColor="@android:color/black"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Barra Inferior -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/black"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/text_od"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:paddingStart="16dp"
+            android:text="OD"
+            android:textColor="#FFA500"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_percentual"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="102.5%"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_oe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:paddingEnd="16dp"
+            android:text="OE"
+            android:textColor="#00A86B"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
