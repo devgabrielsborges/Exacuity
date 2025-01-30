@@ -1,6 +1,7 @@
 package com.example.exacuity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,12 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         holder.textView.setText(symbols[position]);
         holder.itemView.setFocusable(true);
         holder.itemView.setFocusableInTouchMode(true);
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ExhibitionActivity.class);
+            intent.putExtra("symbol", symbols[position]); // Optional: Pass data to the activity
+            context.startActivity(intent);
+        });
     }
 
     @Override

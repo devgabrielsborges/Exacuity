@@ -5,6 +5,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+// TODO: create configurations exhibition and route to it
+// TODO: create e-size exhibition
+// TODO: save app configs
+// TODO: implement reset app button, with confirmation
+
 public class MainActivity extends FragmentActivity {
 
     @Override
