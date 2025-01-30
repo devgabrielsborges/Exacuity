@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Inclui o EditText -->
     <include
         android:id="@+id/include"
-        layout="@layout/grid_top_text" />
+        layout="@layout/grid_top_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <include
         android:id="@+id/include"
         layout="@layout/grid_top_buttons" />
 
-    <!-- RecyclerView abaixo -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="wrap_content"
