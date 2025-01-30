@@ -1,29 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:visibility="visible">
+    android:orientation="horizontal"
+    android:gravity="center">
 
-    <LinearLayout
+    <!-- Settings Button -->
+    <Button
+        android:id="@+id/buttonSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:orientation="horizontal">
+        android:layout_marginEnd="16dp"
+        android:background="@android:drawable/ic_menu_search"
+        android:padding="16dp"
+        android:text="Settings"
+        android:textColor="@android:color/white" />
 
-        <ImageButton
-            android:id="@+id/buttonSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/settings"
-            android:src="@android:drawable/ic_popup_sync" />
+    <!-- Reset Button -->
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/lb_ic_replay"
+        android:padding="16dp"
+        android:text="Reset"
+        android:textColor="@android:color/white" />
 
-        <ImageButton
-            android:id="@+id/buttonReset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/reset"
-            android:src="@android:drawable/ic_menu_manage" />
-
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
