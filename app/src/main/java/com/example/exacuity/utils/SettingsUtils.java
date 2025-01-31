@@ -8,16 +8,17 @@ import android.content.SharedPreferences;
 import com.example.exacuity.MainActivity;
 
 public class SettingsUtils {
-    public static void initializeDefaultSettings (Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+    public static SharedPreferences preferences = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+    public static SharedPreferences.Editor editor = preferences.edit();
 
+    public static void initializeDefaultSettings (Context context) {
         // Check if defaults have already been set
         if (!preferences.contains("distance")) {
             editor.putFloat("distance", 4.0f);
-            editor.putString("acuity", "20/20");
-            editor.putString("screen_size", "87mm");
+            editor.putInt("screen_size", 87);
+            editor.putString("initial_acuity", "20/20");
             editor.putString("initial_table", "20/80");
+            editor.putString("name_field", "Exacuity");
 
             editor.apply();
         }
@@ -42,5 +43,51 @@ public class SettingsUtils {
         }
         
         activity.finish();
+    }
+
+    public static void setSetting(String[] field, String[] value) {
+        switch (field) {
+            case "distance":
+            case "screen_size":
+                editor.putFloat(field, value);
+                break;
+
+            case "initial_acuity":
+            case "initial_table":
+                editor.putString(field, value);
+                
+                break;
+            case "name_field":
+                adjustNameField(value);
+                editor.putString(field, value);
+                break;
+        
+            default:
+                break;
+        }
+
+    }
+
+    private static boolean isNameFieldOk(String nameField) {
+        if (nameField == "" || nameField == null || nameField.trim().isEmpty()) {
+            return false;
+        }
+    }
+
+    public static String[] adjustNameField(String nameField) {
+        if (!isNameFieldOk(nameField)) return editor.getString("nameField", "");
+
+        String[] words = nameField.trim().toLowerCase().split("\\s+");
+        StringBuilder formattedName = new StringBuilder();
+
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                formattedName.append(Character.toUpperCase(word.charAt(0)))
+                             .append(word.substring(1))
+                             .append(" ");
+            }
+        }
+
+        return formattedName.toString().trim();
     }
 }
