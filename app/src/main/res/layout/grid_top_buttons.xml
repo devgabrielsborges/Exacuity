@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="top"
+    android:orientation="horizontal">
 
     <!-- Settings Button -->
     <Button
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@android:drawable/ic_menu_search"
+        android:fontFamily="@font/sarabun"
         android:padding="16dp"
         android:text="Settings"
         android:textColor="@android:color/white" />
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/lb_ic_replay"
+        android:fontFamily="@font/sarabun"
         android:padding="16dp"
         android:text="Reset"
         android:textColor="@android:color/white" />
