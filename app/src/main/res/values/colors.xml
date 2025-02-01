@@ -4,5 +4,9 @@
     <color name="fastlane_background">#0096a6</color>
     <color name="search_opaque">#ffaa3f</color>
     <color name="selected_background">#ffaa3f</color>
-    <color name="default_background">#3d3d3d</color>
+    <color name="default_background">#edf8ff</color>
+    <color name="card_default_state">#d6eeff</color>
+    <color name="card_hover_state">#0057e7</color>
+    <color name="card_stroke">#0057e7</color>
+    <color name="title_color">#0e295d</color>
 </resources>
