@@ -9,4 +9,5 @@
     <color name="card_hover_state">#0057e7</color>
     <color name="card_stroke">#0057e7</color>
     <color name="title_color">#0e295d</color>
+    <color name="grid_icon_color">#0e295d</color>
 </resources>
