@@ -5,17 +5,17 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;
-    private final String[] symbols;
+    private final int[] iconIds; // drawable resource IDs
 
-    public GridAdapter(Context context, String[] symbols) {
+    public GridAdapter(Context context, int[] iconIds) {
         this.context = context;
-        this.symbols = symbols;
+        this.iconIds = iconIds;
     }
 
     @NonNull
@@ -27,28 +27,31 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.textView.setText(symbols[position]);
-        holder.itemView.setFocusable(true);
-        holder.itemView.setFocusableInTouchMode(true);
+        holder.iconImage.setImageResource(iconIds[position]);
+
+        holder.itemView.setOnFocusChangeListener((v, hasFocus) -> {
+            float scale = hasFocus ? 1.1f : 1.0f;
+            v.animate().scaleX(scale).scaleY(scale).setDuration(200).start();
+        });
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ExhibitionActivity.class);
-            intent.putExtra("symbol", symbols[position]); // Optional: Pass data to the activity
+            intent.putExtra("iconResId", iconIds[position]); 
             context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return symbols.length;
+        return iconIds.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        ImageView iconImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.grid_text);
+            iconImage = itemView.findViewById(R.id.icon_image);
         }
     }
 }

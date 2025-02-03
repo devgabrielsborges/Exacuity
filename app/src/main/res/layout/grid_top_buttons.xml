@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="top"
+    android:orientation="horizontal">
 
     <!-- Settings Button -->
     <Button
@@ -11,9 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:background="@android:drawable/ic_menu_search"
+        android:drawableLeft="@drawable/settings_icon"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/sarabun"
         android:padding="16dp"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textColor="@android:color/white" />
 
     <!-- Reset Button -->
@@ -21,9 +23,11 @@
         android:id="@+id/buttonReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/lb_ic_replay"
+        android:drawableLeft="@drawable/reset_icon"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/sarabun"
         android:padding="16dp"
-        android:text="Reset"
+        android:text="@string/reset"
         android:textColor="@android:color/white" />
 
 </LinearLayout>

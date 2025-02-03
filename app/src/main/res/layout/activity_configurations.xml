@@ -3,8 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/default_background"
     android:orientation="vertical"
-    android:background="@drawable/default_background"
     android:padding="32dp">
 
     <!-- Title -->
@@ -13,8 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:fontFamily="@font/sarabun_bold"
         android:text="Configurações"
-        android:textColor="@android:color/white"
+        android:textColor="@color/title_color"
         android:textSize="28sp"
         android:textStyle="bold" />
 
@@ -25,8 +26,6 @@
         android:columnCount="4"
         android:gravity="center"
         android:rowCount="1">
-
-        <!-- First Card (Hovered) -->
 
         <FrameLayout
             android:layout_width="0dp"
@@ -46,21 +45,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tela"
-                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/sarabun"
+                    android:text="@string/config_card1_top"
+                    android:textColor="@color/background_gradient_start"
                     android:textSize="18sp" />
 
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="8dp"
-                    android:background="@android:color/black" />
+                    android:background="@drawable/distance_config_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="87 mm"
+                    android:fontFamily="@font/sarabun"
+                    android:text="4.0 m"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -85,20 +86,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tela"
+                    android:fontFamily="@font/sarabun"
+                    android:text="@string/config_card2_top"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="8dp"
-                    android:background="@android:color/black" />
+                    android:background="@drawable/e_height_config_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sarabun"
                     android:text="87 mm"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -123,20 +126,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tela"
+                    android:fontFamily="@font/sarabun"
+                    android:text="@string/config_card3_top"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="8dp"
-                    android:background="@android:color/black" />
+                    android:background="@drawable/visual_acuity_config_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sarabun"
                     android:text="87 mm"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
@@ -161,20 +166,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tela"
+                    android:fontFamily="@font/sarabun"
+                    android:text="@string/config_card4_top"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
-                <View
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginTop="8dp"
-                    android:background="@android:color/black" />
+                    android:background="@drawable/initial_chart_config_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sarabun"
                     android:text="87 mm"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />

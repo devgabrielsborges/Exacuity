@@ -27,9 +27,27 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
          RecyclerView recyclerView = findViewById(R.id.recyclerView);
          recyclerView.setLayoutManager(new GridLayoutManager(this, 5)); // 5 columns
 
-         String[] symbols = {"E", "H", "Ш", "E", "M", "E", "H", "Ш", "E", "M", "E", "Ш", "E", "M", "G"};
-         GridAdapter adapter = new GridAdapter(this, symbols);
-         recyclerView.setAdapter(adapter);
+        int[] iconIds = {
+            R.drawable.icon_g1,
+            R.drawable.icon_g2,
+            R.drawable.icon_g3,
+            R.drawable.icon_g4,
+            R.drawable.icon_g5,
+            R.drawable.icon_g6,
+            R.drawable.icon_g7,
+            R.drawable.icon_g8,
+            R.drawable.icon_g9,
+            R.drawable.icon_g10,
+            R.drawable.icon_g11,
+            R.drawable.icon_g12,
+            R.drawable.icon_g13,
+            R.drawable.icon_g14,
+            R.drawable.icon_g15,
+            
+        };
+
+        GridAdapter adapter = new GridAdapter(this, iconIds);
+        recyclerView.setAdapter(adapter);
 
         Button buttonSettings = findViewById(R.id.buttonSettings);
         Button buttonReset = findViewById(R.id.buttonReset);
@@ -52,14 +70,14 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
 
     private void showResetConfirmationDialog() {
         new AlertDialog.Builder(this) // No changes needed here
-            .setTitle("Confirm Reset")
-            .setMessage("Are you sure you want to reset the app?")
-            .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            .setTitle("Resetar aplicativo")
+            .setMessage("Deseja resetar o aplicativo?")
+            .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     SettingsUtils.performSettingsReset(MainActivity.this);
                 }
              })
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Cancelar", null)
             .show();
     }
 }
