@@ -32,6 +32,13 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         holder.itemView.setOnFocusChangeListener((v, hasFocus) -> {
             float scale = hasFocus ? 1.1f : 1.0f;
             v.animate().scaleX(scale).scaleY(scale).setDuration(200).start();
+
+            float elevation = hasFocus ? 4f : 0f;
+            v.setElevation(elevation);
+
+            int color = hasFocus ? context.getResources().getColor(android.R.color.white) : context.getResources().getColor(R.color.title_color);
+
+            holder.iconImage.setColorFilter(color);
         });
 
         holder.itemView.setOnClickListener(v -> {

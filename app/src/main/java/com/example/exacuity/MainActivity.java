@@ -1,10 +1,14 @@
 package com.example.exacuity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity; // Changed import
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,10 +23,10 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
 
-        SettingsUtils.initializeDefaultSettings(this);
+         SettingsUtils.initializeDefaultSettings(this);
 
          RecyclerView recyclerView = findViewById(R.id.recyclerView);
          recyclerView.setLayoutManager(new GridLayoutManager(this, 5)); // 5 columns
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
     }
 
     private void showResetConfirmationDialog() {
-        new AlertDialog.Builder(this) // No changes needed here
+        new AlertDialog.Builder(this)
             .setTitle("Resetar aplicativo")
             .setMessage("Deseja resetar o aplicativo?")
             .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
