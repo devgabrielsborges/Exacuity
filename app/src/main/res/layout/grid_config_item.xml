@@ -1,15 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerViewConfig"
-    android:layout_width="wrap_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/config_item_container"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_alignBottom="@+id/include"
-    android:layout_centerHorizontal="true"
-    android:layout_gravity="center"
-    android:layout_marginBottom="-406dp"
-    android:descendantFocusability="afterDescendants"
+    android:layout_margin="8dp"
+    android:background="@drawable/config_item_selector"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:gravity="center_horizontal"
-    android:padding="20dp"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:clickable="true"
+    android:descendantFocusability="blocksDescendants">
+
+    <!-- Your card contents -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/config_top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:fontFamily="@font/sarabun"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/config_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:duplicateParentState="true"
+            android:layout_gravity="center"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:id="@+id/config_bottom_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:duplicateParentState="true"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/sarabun"
+            android:textSize="16sp" />
+    </LinearLayout>
+    
+</FrameLayout>

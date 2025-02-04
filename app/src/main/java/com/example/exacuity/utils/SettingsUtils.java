@@ -14,12 +14,12 @@ public class SettingsUtils {
         SharedPreferences.Editor editor = preferences.edit();
 
         // Check if defaults have already been set
-        if (!preferences.contains("distance")) {
-            editor.putFloat("distance", 4.0f);
-            editor.putInt("screen_size", 87);
-            editor.putString("initial_acuity", "20/20");
-            editor.putString("initial_table", "20/80");
+        if (!preferences.contains("name_field")) {
             editor.putString("name_field", "Exacuity");
+            editor.putString("config_bottom_text_0", "4.0 m");
+            editor.putString("config_bottom_text_1", "87 mm");
+            editor.putString("config_bottom_text_2", "20/20");
+            editor.putString("config_bottom_text_3", "Snell");
 
             editor.apply();
         }

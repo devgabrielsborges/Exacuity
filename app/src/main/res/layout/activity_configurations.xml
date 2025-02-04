@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO: Fix styles -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,185 +7,26 @@
     android:padding="32dp">
 
     <!-- Title -->
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
         android:fontFamily="@font/sarabun_bold"
-        android:text="Configurações"
+        android:text="@string/configurations_title"
         android:textColor="@color/title_color"
         android:textSize="28sp"
         android:textStyle="bold" />
 
-    <GridLayout
+    <!-- RecyclerView for dynamic configuration cards -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewConfig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:columnCount="4"
-        android:gravity="center"
-        android:rowCount="1">
+        android:layout_marginTop="32dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" 
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp" 
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/card_normal"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sarabun"
-                    android:text="@string/config_card1_top"
-                    android:textColor="@color/background_gradient_start"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/distance_config_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/sarabun"
-                    android:text="4.0 m"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <!-- Other Cards -->
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/card_normal"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sarabun"
-                    android:text="@string/config_card2_top"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/e_height_config_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/sarabun"
-                    android:text="87 mm"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/card_normal"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sarabun"
-                    android:text="@string/config_card3_top"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/visual_acuity_config_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/sarabun"
-                    android:text="87 mm"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/card_normal"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sarabun"
-                    android:text="@string/config_card4_top"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/initial_chart_config_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/sarabun"
-                    android:text="87 mm"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </FrameLayout>
-
-    </GridLayout>
 </LinearLayout>

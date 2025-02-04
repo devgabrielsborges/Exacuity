@@ -13,6 +13,7 @@
     <string name="dismiss_error">Dismiss</string>
 
     <!-- Config cards -->
+    <string name="configurations_title">Configurações</string>
     <string name="config_card1_top">Distância</string>   
     <string name="config_card2_top">Tela</string>  
     <string name="config_card3_top">Acuidade Inicial</string>
