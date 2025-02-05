@@ -1,14 +1,10 @@
 package com.example.exacuity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity; // Changed import
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -31,6 +27,21 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
          RecyclerView recyclerView = findViewById(R.id.recyclerView);
          recyclerView.setLayoutManager(new GridLayoutManager(this, 5)); // 5 columns
 
+        GridAdapter adapter = getGridAdapter();
+        recyclerView.setAdapter(adapter);
+
+        Button buttonSettings = findViewById(R.id.buttonSettings);
+        Button buttonReset = findViewById(R.id.buttonReset);
+
+        buttonSettings.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ConfigurationsActivity.class);
+            startActivity(intent);
+        });
+
+        buttonReset.setOnClickListener(view -> showResetConfirmationDialog());
+    }
+
+    private @NonNull GridAdapter getGridAdapter() {
         int[] iconIds = {
             R.drawable.icon_g1,
             R.drawable.icon_g2,
@@ -47,40 +58,17 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
             R.drawable.icon_g13,
             R.drawable.icon_g14,
             R.drawable.icon_g15,
-            
+
         };
 
-        GridAdapter adapter = new GridAdapter(this, iconIds);
-        recyclerView.setAdapter(adapter);
-
-        Button buttonSettings = findViewById(R.id.buttonSettings);
-        Button buttonReset = findViewById(R.id.buttonReset);
-
-        buttonSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ConfigurationsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showResetConfirmationDialog();
-            }
-        });
+        return new GridAdapter(this, iconIds);
     }
 
     private void showResetConfirmationDialog() {
         new AlertDialog.Builder(this)
             .setTitle("Resetar aplicativo")
             .setMessage("Deseja resetar o aplicativo?")
-            .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    SettingsUtils.performSettingsReset(MainActivity.this);
-                }
-             })
+            .setPositiveButton("Confirmar", (dialog, which) -> SettingsUtils.performSettingsReset(MainActivity.this))
             .setNegativeButton("Cancelar", null)
             .show();
     }
