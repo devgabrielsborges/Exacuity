@@ -21,6 +21,9 @@ public class SettingsUtils {
             editor.putString("config_bottom_text_2", "20/20");
             editor.putString("config_bottom_text_3", "Snell");
 
+            editor.putString("acuity", "20/20");
+            editor.putString("percentage", "100.0%");
+
             editor.apply();
         }
     }
