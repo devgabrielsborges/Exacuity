@@ -1,5 +1,7 @@
 package com.example.exacuity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.TextView;
@@ -32,11 +34,12 @@ public class ExhibitionActivity extends AppCompatActivity {
             letrasText.setText(symbol);
         }
 
-        // Set default values
-        acuityText.setText("20/15");
-        odText.setText("OD");
-        percentageText.setText("102.5%");
-        oeText.setText("OE");
+        SharedPreferences prefs = this.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+        String acuity = prefs.getString("acuity", "20/20");
+        String percentage = prefs.getString("percentage", "100.0%");
+
+        acuityText.setText(acuity);
+        percentageText.setText(percentage);
 
     }
 

@@ -9,17 +9,36 @@ import com.example.exacuity.MainActivity;
 
 public class SettingsUtils {
 
+    public static String[] acuitys = {
+            "20/400", "20/200", "20/100", "20/80", "20/60",
+            "20/50", "20/40", "20/30", "20/20"
+    };
+
+    public static String[] charts = {
+            "Menu", "Letras", "Numeros", "Tumble E", "Figuras",
+            "C de Landolt", "Mao"
+    };
+
     public static void initializeDefaultSettings(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
         // Check if defaults have already been set
-        if (!preferences.contains("name_field")) {
+        if (!preferences.contains("acuity")) {
             editor.putString("name_field", "Exacuity");
-            editor.putString("config_bottom_text_0", "4.0 m");
-            editor.putString("config_bottom_text_1", "87 mm");
-            editor.putString("config_bottom_text_2", "20/20");
-            editor.putString("config_bottom_text_3", "Snell");
+
+            editor.putInt("acuity_index", 0);
+            editor.putInt("chart_index", 0);
+            editor.putFloat("distance", 4.0f);
+            editor.putInt("e_height", 87);
+
+            editor.putString("config_bottom_text_0", preferences.getFloat("distance", 4.0f) + " m");
+            editor.putString("config_bottom_text_1", preferences.getInt("e_height", 87) + " mm");
+            editor.putString("config_bottom_text_2", acuitys[preferences.getInt("acuity_index", 0)]);
+            editor.putString("config_bottom_text_3", charts[preferences.getInt("chart_index", 0)]);
+
+            editor.putString("acuity", preferences.getString("config_bottom_text_2", "20/20"));
+            editor.putString("percentage", "100.0%");
 
             editor.apply();
         }
