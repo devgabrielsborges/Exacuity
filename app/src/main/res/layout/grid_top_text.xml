@@ -10,7 +10,6 @@
     android:focusableInTouchMode="true"
     android:fontFamily="@font/sarabun_bold_italic"
     android:gravity="center|top"
-    android:hint="@string/lb_search_bar_hint_with_title"
+    android:hint="@string/title_hint"
     android:inputType="text"
-    android:text="@string/app_name"
     android:textSize="40sp" />

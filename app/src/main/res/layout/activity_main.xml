@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/top_text"
         layout="@layout/grid_top_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,13 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_toStartOf="@id/include" />
+        android:layout_toStartOf="@id/top_text" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/include"
+        android:layout_alignBottom="@+id/top_text"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:descendantFocusability="afterDescendants"

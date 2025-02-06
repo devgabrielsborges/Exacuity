@@ -2,32 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:drawablePadding="10dp"
     android:gravity="top"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingTop="25dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
 
-    <!-- Settings Button -->
     <Button
         android:id="@+id/buttonSettings"
+        style="@style/RoundedButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:drawableLeft="@drawable/settings_icon"
         android:drawablePadding="8dp"
-        android:fontFamily="@font/sarabun"
-        android:padding="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="15dp"
         android:text="@string/settings"
-        android:textColor="@android:color/white" />
+        android:textAllCaps="false"
+        android:textColor="@color/card_hover_state" />
 
-    <!-- Reset Button -->
     <Button
         android:id="@+id/buttonReset"
+        style="@style/RoundedButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/reset_icon"
         android:drawablePadding="8dp"
-        android:fontFamily="@font/sarabun"
-        android:padding="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:text="@string/reset"
-        android:textColor="@android:color/white" />
-
+        android:textAllCaps="false"
+        android:textColor="@color/button_pressed_color" />
 </LinearLayout>

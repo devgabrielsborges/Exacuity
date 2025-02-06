@@ -5,9 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity; // Changed import
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.exacuity.utils.SettingsUtils;
 
 // TODO: create e-size exhibition
-// TODO: fix whole application style
 
 public class MainActivity extends AppCompatActivity { // Changed superclass
 
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
          setContentView(R.layout.activity_main);
 
          SettingsUtils.initializeDefaultSettings(this);
+         setTitleName();
 
          RecyclerView recyclerView = findViewById(R.id.recyclerView);
          recyclerView.setLayoutManager(new GridLayoutManager(this, 5)); // 5 columns
@@ -56,18 +55,24 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
         Button buttonSettings = findViewById(R.id.buttonSettings);
         Button buttonReset = findViewById(R.id.buttonReset);
 
-        buttonSettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ConfigurationsActivity.class);
-                startActivity(intent);
-            }
+        buttonSettings.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ConfigurationsActivity.class);
+            startActivity(intent);
         });
 
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showResetConfirmationDialog();
+        buttonReset.setOnClickListener(view -> showResetConfirmationDialog());
+    }
+
+    private void setTitleName() {
+        EditText topText = findViewById(R.id.top_text);
+        SharedPreferences prefs = getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+        String savedTitle = prefs.getString("top_text_value", getString(R.string.app_name));
+        topText.setText(savedTitle);
+
+        topText.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                String newValue = topText.getText().toString();
+                prefs.edit().putString("top_text_value", newValue).apply();
             }
         });
     }
@@ -76,11 +81,7 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
         new AlertDialog.Builder(this)
             .setTitle("Resetar aplicativo")
             .setMessage("Deseja resetar o aplicativo?")
-            .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    SettingsUtils.performSettingsReset(MainActivity.this);
-                }
-             })
+            .setPositiveButton("Confirmar", (dialog, which) -> SettingsUtils.performSettingsReset(MainActivity.this))
             .setNegativeButton("Cancelar", null)
             .show();
     }
