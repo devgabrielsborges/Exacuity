@@ -10,4 +10,8 @@
     <color name="card_stroke">#0057e7</color>
     <color name="title_color">#0e295d</color>
     <color name="grid_icon_color">#0e295d</color>
+    <color name="button_default_color">#d6eeff</color>
+    <color name="button_focused_color">#0e295d</color>
+    <color name="button_hover_color">#0e295d</color>
+    <color name="button_pressed_color">#0057e7</color>
 </resources>

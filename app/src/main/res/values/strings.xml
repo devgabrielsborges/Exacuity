@@ -7,6 +7,8 @@
     <string name="reset">Resetar</string>
     <string name="settings">Configurações</string>
     
+    <!-- default title text -->
+    <string name="title_hint">Defina um nome</string>
 
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
