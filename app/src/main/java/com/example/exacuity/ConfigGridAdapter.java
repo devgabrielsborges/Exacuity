@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.exacuity.utils.ExhibitionUtils;
 import com.example.exacuity.utils.SettingsUtils;
 
 public class ConfigGridAdapter extends RecyclerView.Adapter<ConfigGridAdapter.ViewHolder> implements View.OnKeyListener {
@@ -160,11 +161,11 @@ public class ConfigGridAdapter extends RecyclerView.Adapter<ConfigGridAdapter.Vi
                         index = Math.max(0, index - delta);
                         handled = true;
                     } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
-                        index = Math.min(SettingsUtils.acuitys.length - 1, index + delta);
+                        index = Math.min(ExhibitionUtils.exhibitionAcuities.length - 1, index + delta);
                         handled = true;
                     }
                     if (handled) {
-                        newText = SettingsUtils.acuitys[index];
+                        newText = ExhibitionUtils.exhibitionAcuities[index];
                         prefs.edit().putInt("acuity_index", index).apply();
                         prefs.edit().putString("config_bottom_text_2", newText).apply();
                         holder.bottomText.setText(newText);
