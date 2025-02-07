@@ -20,5 +20,7 @@
     <string name="config_card2_top">Tela</string>  
     <string name="config_card3_top">Acuidade Inicial</string>
     <string name="config_card4_top">Tabela Inicial</string>
-    
+    <string name="od">OD</string>
+    <string name="oe">OE</string>
+
 </resources>
