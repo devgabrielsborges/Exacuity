@@ -1,15 +1,15 @@
 package com.example.exacuity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity; // Changed import
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +30,21 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
          RecyclerView recyclerView = findViewById(R.id.recyclerView);
          recyclerView.setLayoutManager(new GridLayoutManager(this, 5)); // 5 columns
 
+        GridAdapter adapter = getGridAdapter();
+        recyclerView.setAdapter(adapter);
+
+        Button buttonSettings = findViewById(R.id.buttonSettings);
+        Button buttonReset = findViewById(R.id.buttonReset);
+
+        buttonSettings.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ConfigurationsActivity.class);
+            startActivity(intent);
+        });
+
+        buttonReset.setOnClickListener(view -> showResetConfirmationDialog());
+    }
+
+    private @NonNull GridAdapter getGridAdapter() {
         int[] iconIds = {
             R.drawable.icon_g1,
             R.drawable.icon_g2,
@@ -46,21 +61,10 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
             R.drawable.icon_g13,
             R.drawable.icon_g14,
             R.drawable.icon_g15,
-            
+
         };
 
-        GridAdapter adapter = new GridAdapter(this, iconIds);
-        recyclerView.setAdapter(adapter);
-
-        Button buttonSettings = findViewById(R.id.buttonSettings);
-        Button buttonReset = findViewById(R.id.buttonReset);
-
-        buttonSettings.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, ConfigurationsActivity.class);
-            startActivity(intent);
-        });
-
-        buttonReset.setOnClickListener(view -> showResetConfirmationDialog());
+        return new GridAdapter(this, iconIds);
     }
 
     private void setTitleName() {
