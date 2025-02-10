@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exacuity">
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:banner="@drawable/app_icon_your_company"
             android:exported="true"
             android:icon="@drawable/app_icon_your_company"
@@ -31,11 +31,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ExhibitionActivity"
+            android:name=".activities.ExhibitionActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ConfigurationsActivity"
+            android:name=".activities.ConfigurationsActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 

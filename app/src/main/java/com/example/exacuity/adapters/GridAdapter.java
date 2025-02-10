@@ -1,4 +1,4 @@
-package com.example.exacuity;
+package com.example.exacuity.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.exacuity.activities.ExhibitionActivity;
+import com.example.exacuity.R;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.exacuity.MainActivity;
+import com.example.exacuity.activities.MainActivity;
 
 public class SettingsUtils {
 
