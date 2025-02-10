@@ -16,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="20/15"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
@@ -36,9 +35,9 @@
             android:id="@+id/text_letras"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/optotypejuan"
             android:gravity="center"
-            android:letterSpacing="0.25"
-            android:text="A D F G W"
+            android:letterSpacing="1.3"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="80sp"
@@ -70,7 +69,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|center_vertical"
-            android:text="102.5%"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 

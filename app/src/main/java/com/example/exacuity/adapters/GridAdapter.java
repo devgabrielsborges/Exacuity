@@ -6,11 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.exacuity.activities.ExhibitionActivity;
 import com.example.exacuity.R;
+import com.example.exacuity.activities.ExhibitionActivity;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;
@@ -39,7 +40,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             float elevation = hasFocus ? 4f : 0f;
             v.setElevation(elevation);
 
-            int color = hasFocus ? context.getResources().getColor(android.R.color.white) : context.getResources().getColor(R.color.title_color);
+            int color = hasFocus ? context.getColor(android.R.color.white) : context.getColor(R.color.title_color);
 
             holder.iconImage.setColorFilter(color);
         });
