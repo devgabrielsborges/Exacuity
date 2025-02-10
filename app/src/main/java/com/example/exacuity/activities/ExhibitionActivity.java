@@ -15,6 +15,8 @@ import com.example.exacuity.R;
 import com.example.exacuity.utils.ExhibitionUtils;
 import com.example.exacuity.utils.TextUtils;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 // TODO: use only TextUtils methods and properties
@@ -52,21 +54,29 @@ public class ExhibitionActivity extends AppCompatActivity {
         percentageText.setText(ExhibitionUtils.exhibitionPercentages[localAcuityIndex]);
     }
 
-    /**
-     * Generates a random String of exactly 5 characters from the charSet corresponding to the given mode.
-     */
     private String generateRandomLetterText(int mode) {
         char[] charSet = ExhibitionUtils.getCharSet(mode);
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
-        // Assign symbols array with exactly 5 elements.
         symbols = new String[5];
-        for (int i = 0; i < 5; i++) {
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        int count = 0;
+        while (count < 5) {
             int randomIndex = random.nextInt(charSet.length);
             char letter = charSet[randomIndex];
-            sb.append(letter);
-            symbols[i] = String.valueOf(letter);
+
+            // Ensure the map does not return null
+            int frequency = frequencyMap.getOrDefault(letter, 0);
+
+            if (frequency < 2) { // Allow at most 2 repetitions
+                sb.append(letter);
+                symbols[count] = String.valueOf(letter);
+                frequencyMap.put(letter, frequency + 1);
+                count++;
+            }
         }
+
         return sb.toString();
     }
 
@@ -83,7 +93,7 @@ public class ExhibitionActivity extends AppCompatActivity {
         for (int i = 0; i < symbols.length; i++) {
             sb.append(symbols[i]);
             if (i < symbols.length - 1) {
-                sb.append("\u00A0");
+                sb.append("");
             }
         }
         return sb.toString();
@@ -123,9 +133,6 @@ public class ExhibitionActivity extends AppCompatActivity {
                 startIndices[i] = sb.length();
                 sb.append(symbols[i]);
                 endIndices[i] = sb.length();
-                if (i < symbols.length - 1) {
-                    sb.append("");
-                }
             }
 
             SpannableString spannable = new SpannableString(sb.toString());
