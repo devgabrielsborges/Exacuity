@@ -11,11 +11,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Random;
-
 import com.example.exacuity.R;
 import com.example.exacuity.utils.ExhibitionUtils;
 import com.example.exacuity.utils.TextUtils;
+
+import java.util.Random;
 
 // TODO: use only TextUtils methods and properties
 

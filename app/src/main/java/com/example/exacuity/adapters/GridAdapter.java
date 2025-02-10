@@ -6,11 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.exacuity.activities.ExhibitionActivity;
 import com.example.exacuity.R;
+import com.example.exacuity.activities.ExhibitionActivity;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;
