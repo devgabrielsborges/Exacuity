@@ -4,10 +4,7 @@ import android.content.Context;
 import android.util.TypedValue;
 import android.widget.TextView;
 
-// TODO: set different characters set for exhibition
 // TODO: determine increase values for text
-// TODO: generate random text for each exhibition instance
-// TODO: update other texts in exhibition, like scale
 
 public class TextUtils {
 

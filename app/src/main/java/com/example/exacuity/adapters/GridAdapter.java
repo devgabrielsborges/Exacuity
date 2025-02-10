@@ -39,7 +39,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             float elevation = hasFocus ? 4f : 0f;
             v.setElevation(elevation);
 
-            int color = hasFocus ? context.getResources().getColor(android.R.color.white) : context.getResources().getColor(R.color.title_color);
+            int color = hasFocus ? context.getColor(android.R.color.white) : context.getColor(R.color.title_color);
 
             holder.iconImage.setColorFilter(color);
         });
