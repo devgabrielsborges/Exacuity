@@ -56,10 +56,10 @@ public class ConfigGridAdapter extends RecyclerView.Adapter<ConfigGridAdapter.Vi
         holder.itemView.setOnFocusChangeListener((v, hasFocus) -> {
             float scale = hasFocus ? 1.1f : 1.0f;
             v.animate().scaleX(scale).scaleY(scale).setDuration(200).start();
-            
             int color = hasFocus ?
-                    context.getResources().getColor(android.R.color.white) :
-                    context.getResources().getColor(R.color.title_color);
+                    context.getColor(android.R.color.white) :
+                    context.getColor(R.color.title_color);
+
             holder.topText.setTextColor(color);
             holder.bottomText.setTextColor(color);
             holder.configIcon.setColorFilter(color);
