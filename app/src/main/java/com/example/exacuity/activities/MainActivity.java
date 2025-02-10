@@ -1,4 +1,4 @@
-package com.example.exacuity;
+package com.example.exacuity.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.exacuity.R;
+import com.example.exacuity.adapters.GridAdapter;
 import com.example.exacuity.utils.SettingsUtils;
 
 // TODO: create e-size exhibition

@@ -1,4 +1,4 @@
-package com.example.exacuity;
+package com.example.exacuity.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,6 +10,8 @@ import android.view.KeyEvent;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.exacuity.R;
 import com.example.exacuity.utils.ExhibitionUtils;
 import com.example.exacuity.utils.TextUtils;
 

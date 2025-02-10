@@ -1,4 +1,4 @@
-package com.example.exacuity;
+package com.example.exacuity.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.exacuity.R;
 import com.example.exacuity.utils.ExhibitionUtils;
 import com.example.exacuity.utils.SettingsUtils;
 
