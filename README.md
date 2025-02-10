@@ -21,6 +21,3 @@ To set up the project, follow these steps:
    - MainActivity: The main screen of the application.
    - ExhibitionActivity: Conduct visual acuity tests.
    - ConfigurationsActivity: Customize settings for the tests.
-
-## License
-This project is distributed under the MIT License.
