@@ -11,7 +11,7 @@ Exacuity is an Android application designed for visual acuity testing. It provid
 ## Installation
 To set up the project, follow these steps:
 1. Ensure you have Android Studio installed.
-2. Clone the repository: `git clone https://github.com/devgabrielsborges/Exacuity.git>`
+2. Clone the repository: `git clone https://github.com/devgabrielsborges/Exacuity.git`
 3. Open the project in Android Studio.
 4. Build the project to download dependencies and set up the environment.
 
