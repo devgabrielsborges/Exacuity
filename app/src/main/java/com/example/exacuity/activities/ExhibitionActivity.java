@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.exacuity.R;
 import com.example.exacuity.utils.ExhibitionUtils;
-import com.example.exacuity.utils.TextUtils;
+import com.example.exacuity.utils.OptotypeUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +24,8 @@ import java.util.Random;
 public class ExhibitionActivity extends AppCompatActivity {
 
     private int localAcuityIndex; // Local copy of the initial index
+    private float distance;
+    private int calibrator;
     private TextView acuityText;
     private TextView percentageText;
     private TextView lettersText;
@@ -38,6 +40,8 @@ public class ExhibitionActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         localAcuityIndex = prefs.getInt("acuity_index", 0); // Read once from SharedPreferences
+        distance = prefs.getFloat("distance", 4.0f);
+        calibrator = prefs.getInt("e_height", 80);
 
         acuityText = findViewById(R.id.text_acuidade);
         percentageText = findViewById(R.id.text_percentual);
@@ -48,6 +52,7 @@ public class ExhibitionActivity extends AppCompatActivity {
         mode = ExhibitionUtils.convertIconIdToMode(iconResId);
         // Generate random 5-char string based on the mode's charSet.
         lettersText.setText(generateRandomLetterText(mode));
+        lettersText.setTextSize(OptotypeUtils.sizeOptotype(distance, localAcuityIndex, calibrator));
 
         // Use localAcuityIndex to initialize views.
         acuityText.setText(ExhibitionUtils.exhibitionAcuities[localAcuityIndex]);
@@ -155,17 +160,17 @@ public class ExhibitionActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_UP:
+                lettersText.setText(generateRandomLetterText(mode));
                 if (localAcuityIndex < ExhibitionUtils.exhibitionAcuities.length - 1) {
-                    increaseTextSize();
-                    lettersText.setText(generateRandomLetterText(mode));
+                    lettersText.setTextSize(OptotypeUtils.sizeOptotype(distance, localAcuityIndex + 1, calibrator));
                     localAcuityIndex++;
                     updateAcuityDisplay();
                 }
                 return true;
             case KeyEvent.KEYCODE_DPAD_DOWN:
+                lettersText.setText(generateRandomLetterText(mode));
                 if (localAcuityIndex > 0) {
-                    decreaseTextSize();
-                    lettersText.setText(generateRandomLetterText(mode));
+                    lettersText.setTextSize(OptotypeUtils.sizeOptotype(distance, localAcuityIndex - 1, calibrator));
                     localAcuityIndex--;
                     updateAcuityDisplay();
                 }
@@ -183,13 +188,5 @@ public class ExhibitionActivity extends AppCompatActivity {
             default:
                 return super.onKeyDown(keyCode, event);
         }
-    }
-
-    private void increaseTextSize() {
-        TextUtils.increaseTextSize(lettersText, 2);
-    }
-
-    private void decreaseTextSize() {
-        TextUtils.decreaseTextSize(lettersText, 2, 12);
     }
 }

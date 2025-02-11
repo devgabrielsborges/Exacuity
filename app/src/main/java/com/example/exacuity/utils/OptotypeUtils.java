@@ -1,21 +1,13 @@
 package com.example.exacuity.utils;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
 public class OptotypeUtils {
 
-    public static float sizeOptotype(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
+    public static float sizeOptotype(float distance, int acuity_index, int calibrator) {
+        String acuityText = ExhibitionUtils.exhibitionAcuities[acuity_index];
+        String[] acuityParts = acuityText.split("/");
 
-        float dist = preferences.getFloat("distance", 4.0f);  // Default value: 4.0f
-        String acuity = preferences.getString("initial_acuity", "20/20");  // Default value: "20/20"
-        float calibrator = preferences.getFloat("screen_size", 87.0f);  // Default value: 87.0f
+        int acuity = Integer.parseInt(acuityParts[1]);  // Taking the denominator part
 
-        String[] acuityParts = acuity.split("/");
-        int acuid = Integer.parseInt(acuityParts[0]);  // Taking the numerator part
-
-        // Calculate the optotype size
-        return 0.075f * dist * acuid * 3.779f * 50 / calibrator;
+        return (float) (0.0725*distance*acuity *3.779*50/calibrator);
     }
 }
