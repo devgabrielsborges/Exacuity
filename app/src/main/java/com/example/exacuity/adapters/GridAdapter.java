@@ -31,18 +31,27 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.iconImage.setImageResource(iconIds[position]);
+        int iconId = iconIds[position];
+        holder.iconImage.setImageResource(iconId);
+
+        boolean shouldTint = shouldTintIcon(iconId);
+
+        if (shouldTint) {
+            int tintColor = context.getColor(R.color.grid_icon_color);
+            holder.iconImage.setColorFilter(tintColor);
+        }
 
         holder.itemView.setOnFocusChangeListener((v, hasFocus) -> {
             float scale = hasFocus ? 1.1f : 1.0f;
             v.animate().scaleX(scale).scaleY(scale).setDuration(200).start();
 
-            float elevation = hasFocus ? 4f : 0f;
+            float elevation = hasFocus ? 8f : 0f;
             v.setElevation(elevation);
 
-            int color = hasFocus ? context.getColor(android.R.color.white) : context.getColor(R.color.title_color);
-
-            holder.iconImage.setColorFilter(color);
+            if (shouldTint) {
+                int color = hasFocus ? context.getColor(android.R.color.white) : context.getColor(R.color.title_color);
+                holder.iconImage.setColorFilter(color);
+            }
         });
 
         holder.itemView.setOnClickListener(v -> {
@@ -50,6 +59,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             intent.putExtra("iconResId", iconIds[position]); 
             context.startActivity(intent);
         });
+    }
+
+    private boolean shouldTintIcon(int iconId) {
+        return iconId != R.drawable.icon_g11 && iconId != R.drawable.icon_g14;
     }
 
     @Override
