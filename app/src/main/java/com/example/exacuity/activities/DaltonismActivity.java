@@ -19,7 +19,7 @@ public class DaltonismActivity extends AppCompatActivity {
     private TextView descriptionView;
     private LinearLayout indicatorLayout;
     private int currentImageIndex = 0;
-    private final int totalImages = 38;
+    private final int totalImages = 35;
 
     private final int[] imageIds = new int[totalImages];
     private final String[] descriptions = new String[totalImages];
@@ -35,7 +35,7 @@ public class DaltonismActivity extends AppCompatActivity {
 
         for (int i = 0; i < totalImages; i++) {
             imageIds[i] = ExhibitionUtils.ishiwaraIcons[i];
-            descriptions[i] = "Description for image " + (i + 1);
+            descriptions[i] = ExhibitionUtils.ishiwaraDescriptions[i];
         }
 
         setupIndicators();
