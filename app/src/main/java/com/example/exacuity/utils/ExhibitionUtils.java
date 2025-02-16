@@ -3,7 +3,7 @@ package com.example.exacuity.utils;
 import com.example.exacuity.R;
 
 public class ExhibitionUtils {
-    public static String[] exhibitionAcuities = {
+    public static final String[] exhibitionAcuities = {
             "20/15",
             "20/20",
             "20/25",
@@ -21,7 +21,7 @@ public class ExhibitionUtils {
             "20/400"
     };
 
-    public static String[] exhibitionPercentages = {
+    public static final String[] exhibitionPercentages = {
             "103.6%",
             "100%",
             "95.6%",
@@ -113,4 +113,81 @@ public class ExhibitionUtils {
         }
         return 0;
     }
+
+    public static int[] ishiwaraIcons = {
+            R.drawable.ishiwara_01,
+            R.drawable.ishiwara_02,
+            R.drawable.ishiwara_03,
+            R.drawable.ishiwara_04,
+            R.drawable.ishiwara_05,
+            R.drawable.ishiwara_06,
+            R.drawable.ishiwara_07,
+            R.drawable.ishiwara_08,
+            R.drawable.ishiwara_09,
+            R.drawable.ishiwara_10,
+            R.drawable.ishiwara_11,
+            R.drawable.ishiwara_12,
+            R.drawable.ishiwara_13,
+            R.drawable.ishiwara_14,
+            R.drawable.ishiwara_15,
+            R.drawable.ishiwara_16,
+            R.drawable.ishiwara_17,
+            R.drawable.ishiwara_18,
+            R.drawable.ishiwara_19,
+            R.drawable.ishiwara_20,
+            R.drawable.ishiwara_21,
+            R.drawable.ishiwara_22,
+            R.drawable.ishiwara_23,
+            R.drawable.ishiwara_24,
+            R.drawable.ishiwara_25,
+            R.drawable.ishiwara_26,
+            R.drawable.ishiwara_27,
+            R.drawable.ishiwara_28,
+            R.drawable.ishiwara_29,
+            R.drawable.ishiwara_30,
+            R.drawable.ishiwara_31,
+            R.drawable.ishiwara_32,
+            R.drawable.ishiwara_33,
+            R.drawable.ishiwara_34,
+            R.drawable.ishiwara_35
+    };
+
+    public static String[] ishiwaraDescriptions = {
+        "Todo mundo vê 12",
+        "Vê o número 8: normal. Vê o número 3: Deficiência verde-vermelha",
+        "Vê o número 6: normal. Vê o número 5: Deficiência verde-vermelha",
+        "Vê o número 29: normal. Vê o número 70: Deficiência verde-vermelha",
+        "Vê o número 57: normal. Vê o número 35: Deficiência verde-vermelha",
+        "Vê o número 5: normal. Vê o número 2: Deficiência verde-vermelha",
+        "Vê o número 3: normal. Vê o número 5: Deficiência verde-vermelha",
+        "Vê o número 15: normal. Vê o número 17: Deficiência verde-vermelha",
+        "Vê o número 74: normal. Vê o número 21: Deficiência verde-vermelha",
+        "Vê o número 2: normal. Não vê nada: Deficiência verde-vermelha",
+        "Vê o número 6: normal. Não vê nada: Deficiência verde-vermelha",
+        "Vê o número 97: normal. Não vê nada: Deficiência verde-vermelha",
+        "Ver o número 45: normal. Não vê nada: Deficiência verde-vermelha",
+        "Vê o número 5: normal. Não vê nada: Deficiência verde-vermelha",
+        "Vê o número 7: normal. Não vê nada: Deficiência verde-vermelha",
+        "Vê o número 16: normal. Não vê nada: Deficiência verde-vermelha",
+        "Vê o número 73: normal. Não vê nada: Deficiência verde-vermelha",
+        "Não vê nada: normal. Vê o número 5: Deficiência verde-vermelha",
+        " Não vê nada: normal. Vê o número 2: Deficiência verde-vermelha",
+        " Não vê nada: normal. Vê o número 45: Deficiência verde-vermelha",
+        " Não vê nada: normal. Vê o número 73: Deficiência verde-vermelha",
+        "Vê o número 26: normal. Vê o número 6: protanopia ou protanomalia. Vê o número 2: deuteranopia ou deuteranomalia",
+        " Vê o número 42: normal. Vê o número 2:  protanopia ou protanomalia. Vê o número 4: deuteranopia ou deuteranomalia",
+        " Vê o número 35: normal. Vê o número 5:  protanopia ou protanomalia. Vê o número 3: deuteranopia ou deuteranomalia",
+        " Vê o número 96: normal. Vê o número 9:  protanopia ou protanomalia. Vê o número 6: deuteranopia ou deuteranomali",
+        "Vê pontos roxos e vermelhos: NORMAL. Vê apenas a linha roxa: PROTANOPIA/PROTANOMALIA. Vê apenas a linha vermelha: DEUTERANOPIA/ DEUTERANOMALIA",
+        " Vê pontos roxos e vermelhos: NORMAL. Vê apenas a linha roxa:  PROTANOPIA/PROTANOMALIA. Vê apenas a linha vermelha: DEUTERANOPIA/ DEUTERANOMALIA",
+        "Não vê nada: NORMAL. Vê uma linha: DEFICIÊNCIA VERDE-VERMELHA",
+        "Não vê nada: NORMAL. Vê uma linha: DEFICIÊNCIA VERDE-VERMELHA",
+        "Vê uma linha verde: NORMAL. Não vê nada: DEFICIÊNCIA VERDE-VERMELHA",
+        "Vê uma linha verde: NORMAL. Não vê nada: DEFICIÊNCIA VERDE-VERMELHA",
+        "Vê uma linha laranja: NORMAL. Não vê nada: DEFICIÊNCIA VERDE-VERMELHA",
+        "Vê uma linha laranja: NORMAL. Não vê nada: DEFICIÊNCIA VERDE-VERMELHA",
+        "Vê uma linha azul-verde: NORMAL. Vê linha vermelho-violeta: DEFICIÊNCIA VERMELHO-VERDE",
+        " Vê uma linha azul-verde: NORMAL. Vê linha vermelho-violeta: DEFICIÊNCIA VERMELHO-VERDE",
+        " Vê linha laranja-rosa: NORMAL. Vê linha azul-violeta: DEFICIÊNCIA VERDE-VERMELHA"
+    };
 }
