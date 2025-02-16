@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">Exacuity</string>
-    <string name="browse_title">Videos by Your Company</string>
-    <string name="related_movies">Related Videos</string>
-    <string name="grid_view">Grid View</string>
-    <string name="error_fragment">Error Fragment</string>
     <string name="reset">Resetar</string>
     <string name="settings">Configurações</string>
     
@@ -11,16 +7,12 @@
     <string name="title_hint">Defina um nome</string>
 
     <!-- Error messages -->
-    <string name="error_fragment_message">An error occurred</string>
-    <string name="dismiss_error">Dismiss</string>
 
     <!-- Config cards -->
     <string name="configurations_title">Configurações</string>
-    <string name="config_card1_top">Distância</string>   
-    <string name="config_card2_top">Tela</string>  
-    <string name="config_card3_top">Acuidade Inicial</string>
-    <string name="config_card4_top">Tabela Inicial</string>
     <string name="od">OD</string>
     <string name="oe">OE</string>
+    <string name="right_arrow">right arrow</string>
+    <string name="left_arrow">left arrow</string>
 
 </resources>

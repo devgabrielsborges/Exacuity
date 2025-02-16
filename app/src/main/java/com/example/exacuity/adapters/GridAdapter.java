@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.exacuity.R;
+import com.example.exacuity.activities.DaltonismActivity;
 import com.example.exacuity.activities.ExhibitionActivity;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
@@ -55,9 +56,14 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         });
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, ExhibitionActivity.class);
-            intent.putExtra("iconResId", iconIds[position]); 
-            context.startActivity(intent);
+            if (shouldTint) {
+                Intent intentExhibition = new Intent(context, ExhibitionActivity.class);
+                intentExhibition.putExtra("iconResId", iconIds[position]);
+                context.startActivity(intentExhibition);
+            } else if (iconIds[position] == R.drawable.icon_g11){
+                Intent intentDaltonism = new Intent(context, DaltonismActivity.class);
+                context.startActivity(intentDaltonism);
+            }
         });
     }
 
@@ -71,7 +77,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView iconImage;
+        final ImageView iconImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

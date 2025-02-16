@@ -3,7 +3,7 @@ package com.example.exacuity.utils;
 import com.example.exacuity.R;
 
 public class ExhibitionUtils {
-    public static String[] exhibitionAcuities = {
+    public static final String[] exhibitionAcuities = {
             "20/15",
             "20/20",
             "20/25",
@@ -21,7 +21,7 @@ public class ExhibitionUtils {
             "20/400"
     };
 
-    public static String[] exhibitionPercentages = {
+    public static final String[] exhibitionPercentages = {
             "103.6%",
             "100%",
             "95.6%",
@@ -113,4 +113,45 @@ public class ExhibitionUtils {
         }
         return 0;
     }
+
+    public static int[] ishiwaraIcons = {
+            R.drawable.ishiwara_01,
+            R.drawable.ishiwara_02,
+            R.drawable.ishiwara_03,
+            R.drawable.ishiwara_04,
+            R.drawable.ishiwara_05,
+            R.drawable.ishiwara_06,
+            R.drawable.ishiwara_07,
+            R.drawable.ishiwara_08,
+            R.drawable.ishiwara_09,
+            R.drawable.ishiwara_10,
+            R.drawable.ishiwara_11,
+            R.drawable.ishiwara_12,
+            R.drawable.ishiwara_13,
+            R.drawable.ishiwara_14,
+            R.drawable.ishiwara_15,
+            R.drawable.ishiwara_16,
+            R.drawable.ishiwara_17,
+            R.drawable.ishiwara_18,
+            R.drawable.ishiwara_19,
+            R.drawable.ishiwara_20,
+            R.drawable.ishiwara_21,
+            R.drawable.ishiwara_22,
+            R.drawable.ishiwara_23,
+            R.drawable.ishiwara_24,
+            R.drawable.ishiwara_25,
+            R.drawable.ishiwara_26,
+            R.drawable.ishiwara_27,
+            R.drawable.ishiwara_28,
+            R.drawable.ishiwara_29,
+            R.drawable.ishiwara_30,
+            R.drawable.ishiwara_31,
+            R.drawable.ishiwara_32,
+            R.drawable.ishiwara_33,
+            R.drawable.ishiwara_34,
+            R.drawable.ishiwara_35,
+            R.drawable.ishiwara_36,
+            R.drawable.ishiwara_37,
+            R.drawable.ishiwara_38,
+    };
 }
