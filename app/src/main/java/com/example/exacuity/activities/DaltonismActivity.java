@@ -27,7 +27,7 @@ public class DaltonismActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.daltonism_activity);
+        setContentView(R.layout.activity_daltonism);
 
         imageView = findViewById(R.id.image_view);
         descriptionView = findViewById(R.id.description_view);
