@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.leanback)
     implementation(libs.glide)
     implementation(libs.androidx.appcompat.v161)
+    implementation(libs.androidx.cardview)
 }
