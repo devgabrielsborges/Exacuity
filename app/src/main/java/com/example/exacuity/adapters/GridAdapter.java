@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.exacuity.R;
+import com.example.exacuity.activities.ContrastActivity;
 import com.example.exacuity.activities.DaltonismActivity;
 import com.example.exacuity.activities.ExhibitionActivity;
 import com.example.exacuity.activities.ImageActivity;
@@ -57,7 +58,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         });
 
         holder.itemView.setOnClickListener(v -> {
-            if (iconIds[position] == R.drawable.icon_g11){
+            if (iconIds[position] == R.drawable.icon_g9) {
+                Intent contrastIntent = new Intent(context, ContrastActivity.class);
+                context.startActivity(contrastIntent);
+            } else if (iconIds[position] == R.drawable.icon_g11){
                 Intent daltonismIntent = new Intent(context, DaltonismActivity.class);
                 context.startActivity(daltonismIntent);
             } else if (iconIds[position] == R.drawable.icon_g12) {

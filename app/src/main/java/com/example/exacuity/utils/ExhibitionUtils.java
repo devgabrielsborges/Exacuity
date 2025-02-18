@@ -190,4 +190,24 @@ public class ExhibitionUtils {
         " Vê uma linha azul-verde: NORMAL. Vê linha vermelho-violeta: DEFICIÊNCIA VERMELHO-VERDE",
         " Vê linha laranja-rosa: NORMAL. Vê linha azul-violeta: DEFICIÊNCIA VERDE-VERMELHA"
     };
+
+    public static final float[] logCSValues = {
+            2.0f,
+            1.75f,
+            1.5f,
+            1.25f,
+            1.0f,
+            0.75f,
+            0.5f,
+            0.25f
+    };
+    public static final float[] contrastValues = {
+            0.01f,
+            0.02f,
+            0.03f,
+            0.06f,
+            0.1f,
+            0.32f,
+            0.56f
+    };
 }
