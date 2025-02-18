@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
         GridAdapter adapter = getGridAdapter();
         recyclerView.setAdapter(adapter);
 
+        recyclerView.post(() -> {
+            if (recyclerView.getChildCount() > 0) {
+                recyclerView.getChildAt(0).requestFocus();
+            }
+        });
+
         Button buttonSettings = findViewById(R.id.buttonSettings);
         Button buttonReset = findViewById(R.id.buttonReset);
 
