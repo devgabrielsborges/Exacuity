@@ -25,7 +25,7 @@ public class ImageActivity extends AppCompatActivity {
         imageView.setImageResource(imageResId);
 
         if (imageResId == R.drawable.template) isTemplate = true;
-        currentScale = !isTemplate ? 1.0f : 2.0f;
+        currentScale = !isTemplate ? 1.0f : 2.4f;
 
         imageView.setScaleX(currentScale);
         imageView.setScaleY(currentScale);
@@ -48,7 +48,7 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     private void increaseScale() {
-        float MAX_SCALE = !isTemplate ? 1.4f : 2.4f;
+        float MAX_SCALE = !isTemplate ? 1.4f : 2.8f;
         if (currentScale < MAX_SCALE) {
             currentScale += SCALE_STEP;
             imageView.animate()
