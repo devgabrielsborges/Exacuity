@@ -1,9 +1,4 @@
 <resources>
-    <color name="background_gradient_start">#000000</color>
-    <color name="background_gradient_end">#DDDDDD</color>
-    <color name="fastlane_background">#0096a6</color>
-    <color name="search_opaque">#ffaa3f</color>
-    <color name="selected_background">#ffaa3f</color>
     <color name="default_background">#edf8ff</color>
     <color name="card_default_state">#d6eeff</color>
     <color name="card_hover_state">#0057e7</color>
@@ -12,7 +7,6 @@
     <color name="grid_icon_color">#0e295d</color>
     <color name="button_default_color">#d6eeff</color>
     <color name="button_focused_color">#0057e7</color>
-    <color name="button_hover_color">#0e295d</color>
     <color name="button_pressed_color">#0057e7</color>
     <color name="default_text_color">#0057e7</color>
     <color name="focused_text_color">#d6eeff</color>

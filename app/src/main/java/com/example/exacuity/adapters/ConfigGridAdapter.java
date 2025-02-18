@@ -202,11 +202,12 @@ public class ConfigGridAdapter extends RecyclerView.Adapter<ConfigGridAdapter.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView configIcon;
-        TextView topText, bottomText;
-        View arrowContainer;
-        View arrowLeft;
-        View arrowRight;
+        final ImageView configIcon;
+        final TextView topText;
+        final TextView bottomText;
+        final View arrowContainer;
+        final View arrowLeft;
+        final View arrowRight;
         boolean isEditing = false;
     
         public ViewHolder(@NonNull View itemView) {

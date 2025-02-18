@@ -14,5 +14,6 @@
     <string name="oe">OE</string>
     <string name="right_arrow">right arrow</string>
     <string name="left_arrow">left arrow</string>
+    <string name="image_desc">Image</string>
 
 </resources>

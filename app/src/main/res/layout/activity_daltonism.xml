@@ -2,13 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -24,10 +24,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:contentDescription="" />
+                android:contentDescription=""
+                tools:ignore="ContentDescription" />
 
             <ImageButton
-                android:id="@+id/left_arrow"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_centerVertical="true"
@@ -39,7 +39,6 @@
                 app:tint="@color/title_color" />
 
             <ImageButton
-                android:id="@+id/right_arrow"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_centerVertical="true"

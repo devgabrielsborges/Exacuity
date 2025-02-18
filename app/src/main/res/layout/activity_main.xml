@@ -13,7 +13,6 @@
         android:layout_centerHorizontal="true" />
 
     <include
-        android:id="@+id/includeButtons"
         layout="@layout/grid_top_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

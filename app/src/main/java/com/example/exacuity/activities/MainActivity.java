@@ -17,8 +17,6 @@ import com.example.exacuity.R;
 import com.example.exacuity.adapters.GridAdapter;
 import com.example.exacuity.utils.SettingsUtils;
 
-// TODO: create e-size exhibition
-
 public class MainActivity extends AppCompatActivity { // Changed superclass
 
     @Override

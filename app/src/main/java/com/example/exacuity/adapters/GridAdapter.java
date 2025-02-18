@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.exacuity.R;
 import com.example.exacuity.activities.DaltonismActivity;
 import com.example.exacuity.activities.ExhibitionActivity;
+import com.example.exacuity.activities.ImageActivity;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;
@@ -56,13 +57,21 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
         });
 
         holder.itemView.setOnClickListener(v -> {
-            if (shouldTint) {
+            if (iconIds[position] == R.drawable.icon_g11){
+                Intent daltonismIntent = new Intent(context, DaltonismActivity.class);
+                context.startActivity(daltonismIntent);
+            } else if (iconIds[position] == R.drawable.icon_g12) {
+                Intent amslerIntent = new Intent(context, ImageActivity.class);
+                amslerIntent.putExtra("image_source", R.drawable.amsler);
+                context.startActivity(amslerIntent);
+            } else if (iconIds[position] == R.drawable.icon_g15) {
+                Intent dialIntent = new Intent(context, ImageActivity.class);
+                dialIntent.putExtra("image_source", R.drawable.dial);
+                context.startActivity(dialIntent);
+            } else {
                 Intent intentExhibition = new Intent(context, ExhibitionActivity.class);
                 intentExhibition.putExtra("iconResId", iconIds[position]);
                 context.startActivity(intentExhibition);
-            } else if (iconIds[position] == R.drawable.icon_g11){
-                Intent intentDaltonism = new Intent(context, DaltonismActivity.class);
-                context.startActivity(intentDaltonism);
             }
         });
     }
