@@ -9,7 +9,7 @@ import com.example.exacuity.activities.MainActivity;
 
 public class SettingsUtils {
 
-    public static String[] charts = {
+    public static final String[] charts = {
             "Menu", "Letras", "Numeros", "Tumble E", "Figuras",
             "C de Landolt", "Mao"
     };

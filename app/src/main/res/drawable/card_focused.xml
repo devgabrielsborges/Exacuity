@@ -3,6 +3,5 @@
     android:shape="rectangle">
     <solid android:color="@color/card_hover_state" />
     <corners android:radius="12dp" />
-    <textColor android:color="@android:color/white" />
     <stroke android:color="@android:color/white" android:width="2dp" />
 </shape>

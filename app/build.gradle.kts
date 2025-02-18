@@ -4,15 +4,23 @@ plugins {
 
 android {
     namespace = "com.example.exacuity"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.exacuity"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
+    }
+
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion("1.8.22")
+            }
+        }
     }
 
     buildTypes {

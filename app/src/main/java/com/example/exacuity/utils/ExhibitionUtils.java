@@ -114,7 +114,7 @@ public class ExhibitionUtils {
         return 0;
     }
 
-    public static int[] ishiwaraIcons = {
+    public static final int[] ishiwaraIcons = {
             R.drawable.ishiwara_01,
             R.drawable.ishiwara_02,
             R.drawable.ishiwara_03,
@@ -152,7 +152,7 @@ public class ExhibitionUtils {
             R.drawable.ishiwara_35
     };
 
-    public static String[] ishiwaraDescriptions = {
+    public static final String[] ishiwaraDescriptions = {
         "Todo mundo vê 12",
         "Vê o número 8: normal. Vê o número 3: Deficiência verde-vermelha",
         "Vê o número 6: normal. Vê o número 5: Deficiência verde-vermelha",

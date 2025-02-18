@@ -18,6 +18,8 @@ import com.example.exacuity.adapters.GridAdapter;
 import com.example.exacuity.utils.SettingsUtils;
 
 // TODO: create e-size exhibition
+// TODO: create daltonism exhibition
+// TODO: create zoom images exhibition
 
 public class MainActivity extends AppCompatActivity { // Changed superclass
 

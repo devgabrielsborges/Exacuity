@@ -1,5 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/config_item_container"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -29,7 +29,8 @@
             android:layout_height="100dp"
             android:duplicateParentState="true"
             android:layout_gravity="center"
-            android:scaleType="centerInside" />
+            android:scaleType="centerInside"
+            tools:ignore="ContentDescription" />
 
         <!-- Arrow container wrapping the bottom text between the arrows -->
         <LinearLayout
@@ -44,8 +45,10 @@
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_left"
-            android:visibility="gone" />
+            android:src="@drawable/ic_arrow_right"
+            android:rotation="180"
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/config_bottom_text"
@@ -62,7 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_right"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:ignore="ContentDescription" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
