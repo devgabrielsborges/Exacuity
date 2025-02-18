@@ -61,6 +61,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             if (iconIds[position] == R.drawable.icon_g9) {
                 Intent contrastIntent = new Intent(context, ContrastActivity.class);
                 context.startActivity(contrastIntent);
+            } else if (iconIds[position] == R.drawable.icon_g10){
+                Intent dotIntent = new Intent(context, ImageActivity.class);
+                dotIntent.putExtra("image_source", R.drawable.dot);
+                context.startActivity(dotIntent);
             } else if (iconIds[position] == R.drawable.icon_g11){
                 Intent daltonismIntent = new Intent(context, DaltonismActivity.class);
                 context.startActivity(daltonismIntent);
@@ -68,6 +72,10 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                 Intent amslerIntent = new Intent(context, ImageActivity.class);
                 amslerIntent.putExtra("image_source", R.drawable.amsler);
                 context.startActivity(amslerIntent);
+            } else if (iconIds[position] == R.drawable.icon_g13) {
+                Intent templateIntent = new Intent(context, ImageActivity.class);
+                templateIntent.putExtra("image_source", R.drawable.template);
+                context.startActivity(templateIntent);
             } else if (iconIds[position] == R.drawable.icon_g15) {
                 Intent dialIntent = new Intent(context, ImageActivity.class);
                 dialIntent.putExtra("image_source", R.drawable.dial);
