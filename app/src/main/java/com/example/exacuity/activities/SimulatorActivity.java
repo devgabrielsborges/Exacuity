@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,11 +20,18 @@ public class SimulatorActivity extends AppCompatActivity {
     private TextView cataractText;
     private TextView glaucomaText;
 
-    private boolean isCataractAlternate = false;
-    private boolean isGlaucomaAlternate = false;
+    private ImageButton leftArrow;
+    private ImageButton rightArrow;
 
     private View fogOverlay;
     private View glaucomaOverlay;
+
+    private int defaultColor;
+    private int alternateColor;
+
+    // Toggle flags for text colors
+    private boolean isCatarataAlternate = false;
+    private boolean isGlaucomaAlternate = false;
 
     private final long ANIM_DURATION = 1200; // fade in/out duration in ms.
 
@@ -33,12 +41,20 @@ public class SimulatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_simulator);
 
         cataractText = findViewById(R.id.item_catarata);
-        glaucomaText = findViewById(R.id.item_glauccoma);
+        glaucomaText = findViewById(R.id.item_glaucoma);
+
+        leftArrow = findViewById(R.id.left_arrow);
+        rightArrow = findViewById(R.id.right_arrow);
+
         RelativeLayout rootLayout = findViewById(R.id.simulator_root);
+
+        Resources res = getResources();
+        defaultColor = res.getColor(R.color.title_color);
+        alternateColor = res.getColor(R.color.button_pressed_color);
 
         GradientDrawable fogDrawable = new GradientDrawable(
                 GradientDrawable.Orientation.TOP_BOTTOM,
-                new int[] { Color.argb(0, 255, 255, 255), Color.argb(220, 220, 220, 220) }
+                new int[]{ Color.argb(0, 255, 255, 255), Color.argb(220, 220, 220, 220) }
         );
         fogOverlay = new View(this);
         RelativeLayout.LayoutParams fogParams = new RelativeLayout.LayoutParams(
@@ -52,7 +68,6 @@ public class SimulatorActivity extends AppCompatActivity {
         rootLayout.addView(fogOverlay);
 
         GradientDrawable glaucomaDrawable = getGradientDrawable();
-
         glaucomaOverlay = new View(this);
         RelativeLayout.LayoutParams glaucParams = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT,
@@ -66,25 +81,22 @@ public class SimulatorActivity extends AppCompatActivity {
     }
 
     private static @NonNull GradientDrawable getGradientDrawable() {
-        GradientDrawable glaucomaDrawable = new GradientDrawable();
-        glaucomaDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
-        glaucomaDrawable.setGradientCenter(0.5f, 0.5f);
-        glaucomaDrawable.setGradientRadius(500f); // Adjust radius as needed.
-        int[] colors = new int[] { Color.TRANSPARENT, Color.BLACK, Color.BLACK };
-        float[] positions = new float[] { 0f, 0.5f, 1f };
-        glaucomaDrawable.setColors(colors, positions);
-        return glaucomaDrawable;
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+        drawable.setGradientCenter(0.5f, 0.5f);
+        drawable.setGradientRadius(500f); // Adjust radius as needed.
+        int[] colors = new int[]{ Color.TRANSPARENT, Color.BLACK, Color.BLACK };
+        float[] positions = new float[]{ 0f, 0.5f, 1f };
+        drawable.setColors(colors, positions);
+        return drawable;
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        Resources res = getResources();
-        int defaultColor = res.getColor(R.color.title_color);
-
         if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
-            isCataractAlternate = !isCataractAlternate;
-            int alternateColor = res.getColor(R.color.button_pressed_color);
-            cataractText.setTextColor(isCataractAlternate ? alternateColor : defaultColor);
+            isCatarataAlternate = !isCatarataAlternate;
+            cataractText.setTextColor(isCatarataAlternate ? alternateColor : defaultColor);
+            rightArrow.setColorFilter(alternateColor);
 
             if (fogOverlay.getVisibility() == View.VISIBLE) {
                 fadeOutOverlay(fogOverlay);
@@ -94,8 +106,8 @@ public class SimulatorActivity extends AppCompatActivity {
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
             isGlaucomaAlternate = !isGlaucomaAlternate;
-            int alternateColor = res.getColor(R.color.button_pressed_color);
             glaucomaText.setTextColor(isGlaucomaAlternate ? alternateColor : defaultColor);
+            leftArrow.setColorFilter(alternateColor);
 
             if (glaucomaOverlay.getVisibility() == View.VISIBLE) {
                 fadeOutOverlay(glaucomaOverlay);
@@ -107,10 +119,22 @@ public class SimulatorActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+            rightArrow.setColorFilter(defaultColor);
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+            leftArrow.setColorFilter(defaultColor);
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
     private void fadeInOverlay(final View overlay) {
         overlay.setAlpha(0f);
         overlay.setVisibility(View.VISIBLE);
-        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(overlay, "alpha", 0f, (float) 1.0);
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(overlay, "alpha", 0f, 1f);
         fadeIn.setDuration(ANIM_DURATION);
         fadeIn.setInterpolator(new DecelerateInterpolator());
         fadeIn.start();

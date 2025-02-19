@@ -1,7 +1,9 @@
 package com.example.exacuity.activities;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.exacuity.R;
@@ -9,6 +11,10 @@ import com.example.exacuity.R;
 public class ImageActivity extends AppCompatActivity {
 
     private ImageView imageView;
+    private ImageButton leftArrow;
+    private ImageButton rightArrow;
+    private int defaultColor;
+    private int alternateColor;
     private float currentScale;
     private final float SCALE_STEP = 0.2f;
     private final long ANIM_DURATION = 250;
@@ -18,7 +24,14 @@ public class ImageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
+
         imageView = findViewById(R.id.image_view);
+        leftArrow = findViewById(R.id.left_arrow);
+        rightArrow = findViewById(R.id.right_arrow);
+
+        Resources res = getResources();
+        defaultColor = res.getColor(R.color.title_color);
+        alternateColor = res.getColor(R.color.button_pressed_color);
 
         // Retrieve the image resource passed as an extra
         int imageResId = getIntent().getIntExtra("image_source", R.drawable.amsler);
@@ -37,14 +50,28 @@ public class ImageActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch(keyCode) {
             case KeyEvent.KEYCODE_DPAD_RIGHT:
+                rightArrow.setColorFilter(alternateColor);
                 increaseScale();
                 return true;
             case KeyEvent.KEYCODE_DPAD_LEFT:
+                leftArrow.setColorFilter(alternateColor);
                 decreaseScale();
                 return true;
             default:
                 return super.onKeyDown(keyCode, event);
         }
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+            rightArrow.setColorFilter(defaultColor);
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+            leftArrow.setColorFilter(defaultColor);
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 
     private void increaseScale() {

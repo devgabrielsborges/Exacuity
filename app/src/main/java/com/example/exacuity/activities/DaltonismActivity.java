@@ -1,9 +1,11 @@
 package com.example.exacuity.activities;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,10 @@ public class DaltonismActivity extends AppCompatActivity {
     private LinearLayout indicatorLayout;
     private int currentImageIndex = 0;
     private final int totalImages = 35;
+    private ImageButton leftArrow;
+    private ImageButton rightArrow;
+    private int defaultColor;
+    private int alternateColor;
 
     private final int[] imageIds = new int[totalImages];
     private final String[] descriptions = new String[totalImages];
@@ -32,6 +38,13 @@ public class DaltonismActivity extends AppCompatActivity {
         imageView = findViewById(R.id.image_view);
         descriptionView = findViewById(R.id.description_view);
         indicatorLayout = findViewById(R.id.indicator_layout);
+
+        leftArrow = findViewById(R.id.left_arrow);
+        rightArrow = findViewById(R.id.right_arrow);
+
+        Resources res = getResources();
+        defaultColor = res.getColor(R.color.title_color);
+        alternateColor = res.getColor(R.color.button_pressed_color);
 
         for (int i = 0; i < totalImages; i++) {
             imageIds[i] = ExhibitionUtils.ishiwaraIcons[i];
@@ -76,10 +89,12 @@ public class DaltonismActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_RIGHT:
+                rightArrow.setColorFilter(alternateColor);
                 currentImageIndex = (currentImageIndex + 1) % totalImages;
                 updateUI();
                 return true;
             case KeyEvent.KEYCODE_DPAD_LEFT:
+                leftArrow.setColorFilter(alternateColor);
                 currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
                 updateUI();
                 return true;
@@ -89,5 +104,17 @@ public class DaltonismActivity extends AppCompatActivity {
             default:
                 return super.onKeyDown(keyCode, event);
         }
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+            rightArrow.setColorFilter(defaultColor);
+            return true;
+        } else if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+            leftArrow.setColorFilter(defaultColor);
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }
