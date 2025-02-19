@@ -1,7 +1,6 @@
 package com.example.exacuity.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.exacuity.R;
-import com.example.exacuity.activities.ContrastActivity;
-import com.example.exacuity.activities.DaltonismActivity;
-import com.example.exacuity.activities.ExhibitionActivity;
-import com.example.exacuity.activities.ImageActivity;
-import com.example.exacuity.activities.SimulatorActivity;
+import com.example.exacuity.utils.ExhibitionUtils;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;
@@ -58,38 +53,7 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
             }
         });
 
-        holder.itemView.setOnClickListener(v -> {
-            if (iconIds[position] == R.drawable.icon_g9) {
-                Intent contrastIntent = new Intent(context, ContrastActivity.class);
-                context.startActivity(contrastIntent);
-            } else if (iconIds[position] == R.drawable.icon_g10){
-                Intent dotIntent = new Intent(context, ImageActivity.class);
-                dotIntent.putExtra("image_source", R.drawable.dot);
-                context.startActivity(dotIntent);
-            } else if (iconIds[position] == R.drawable.icon_g11){
-                Intent daltonismIntent = new Intent(context, DaltonismActivity.class);
-                context.startActivity(daltonismIntent);
-            } else if (iconIds[position] == R.drawable.icon_g12) {
-                Intent amslerIntent = new Intent(context, ImageActivity.class);
-                amslerIntent.putExtra("image_source", R.drawable.amsler);
-                context.startActivity(amslerIntent);
-            } else if (iconIds[position] == R.drawable.icon_g13) {
-                Intent templateIntent = new Intent(context, ImageActivity.class);
-                templateIntent.putExtra("image_source", R.drawable.template);
-                context.startActivity(templateIntent);
-            } else if (iconIds[position] == R.drawable.icon_g14) {
-                Intent simulatorIntent = new Intent(context, SimulatorActivity.class);
-                context.startActivity(simulatorIntent);
-            } else if (iconIds[position] == R.drawable.icon_g15) {
-                Intent dialIntent = new Intent(context, ImageActivity.class);
-                dialIntent.putExtra("image_source", R.drawable.dial);
-                context.startActivity(dialIntent);
-            } else {
-                Intent intentExhibition = new Intent(context, ExhibitionActivity.class);
-                intentExhibition.putExtra("iconResId", iconIds[position]);
-                context.startActivity(intentExhibition);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> ExhibitionUtils.startActivity(context, iconIds[position]));
     }
 
     private boolean shouldTintIcon(int iconId) {
