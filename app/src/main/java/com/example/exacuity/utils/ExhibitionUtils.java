@@ -114,17 +114,21 @@ public class ExhibitionUtils {
         char[] charSet;
         switch(mode) {
             case 0:
-            case 8:
             default:
                 charSet = new char[]{
-                        'A', 'B', 'C', 'D', 'E', 'F', 'H', 'K',
-                        'L', 'N', 'O', 'P'
+                        'N', 'C', 'K', 'Z', 'O', 'R', 'H', 'V',
+                        'D', 'P', 'F'
                 };
                 break;
             case 1:
                 charSet = new char[]{
                         '1', '2', '3', '4', '5', '6', '7', '8',
                         '9'
+                };
+                break;
+            case 2:
+                charSet = new char[] {
+                        'g', 'h', 'i', 'j', 'k', 'l', 'm'
                 };
                 break;
             case 3:
@@ -139,12 +143,12 @@ public class ExhibitionUtils {
                 break;
             case 5:
                 charSet = new char[] {
-                        'a', 'b', 'c', 'd'
+                        'a', 'b', 'c', 'd', 'e', 'f'
                 };
                 break;
             case 6:
                 charSet = new char[] {
-                        'H', 'K', 'L', 'N', 'O', 'P'
+                        'H', 'T', 'O', 'V'
                 };
                 break;
             case 7:
