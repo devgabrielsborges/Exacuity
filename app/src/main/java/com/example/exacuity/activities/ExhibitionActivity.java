@@ -3,6 +3,9 @@ package com.example.exacuity.activities;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.widget.TextView;
 
@@ -14,9 +17,9 @@ import com.example.exacuity.utils.OptotypeUtils;
 
 public class ExhibitionActivity extends AppCompatActivity {
 
-    private int localAcuityIndex; // local acuity index from preferences
+    private int localAcuityIndex;
     private float distance;
-    private int calibrator;
+    private int calibrator; // Default calibrator (in mm) is 80
     private TextView lettersText;
     private int mode;
     private OptotypeUtils optotypeUtils;
@@ -35,19 +38,31 @@ public class ExhibitionActivity extends AppCompatActivity {
         TextView percentageText = findViewById(R.id.text_percentual);
         lettersText = findViewById(R.id.text_letras);
 
-        // Extract the icon resource id from the intent extras.
         int iconResId = getIntent().getIntExtra("iconResId", 0);
         mode = ExhibitionUtils.convertIconIdToMode(iconResId);
 
-        // Create an instance of OptotypeUtils with necessary views and state.
         optotypeUtils = new OptotypeUtils(acuityText, percentageText, lettersText, localAcuityIndex);
 
-        // Generate optotypes text based on mode and update display.
-        lettersText.setText(optotypeUtils.generateOptotypes(mode));
-        lettersText.setTextSize(optotypeUtils.sizeOptotype(distance, localAcuityIndex, calibrator));
+        lettersText.post(() -> {
+            updateOptotypeDisplay();
 
-        acuityText.setText(ExhibitionUtils.exhibitionAcuities[localAcuityIndex]);
-        percentageText.setText(ExhibitionUtils.exhibitionPercentages[localAcuityIndex]);
+            new Handler().postDelayed(() -> {
+                dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_UP));
+                dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_UP));
+
+                dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_DOWN));
+                dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_DOWN));
+            }, 0);
+        });
+    }
+
+    private void updateOptotypeDisplay(){
+        String optotypes = optotypeUtils.generateOptotypes(mode);
+        lettersText.setText(optotypes);
+
+        float calculatedSize = optotypeUtils.sizeOptotype(distance, localAcuityIndex, (float) calibrator, this);
+        Log.d("ExhibitionActivity", "Calculated optotype size in pixels: " + calculatedSize);
+        lettersText.setTextSize(TypedValue.COMPLEX_UNIT_PX, calculatedSize);
     }
 
     @Override
@@ -57,8 +72,9 @@ public class ExhibitionActivity extends AppCompatActivity {
                 lettersText.setText(optotypeUtils.generateOptotypes(mode));
                 if (localAcuityIndex < ExhibitionUtils.exhibitionAcuities.length - 1) {
                     localAcuityIndex++;
-                    // Update both the text size and the internal acuity index.
-                    lettersText.setTextSize(optotypeUtils.sizeOptotype(distance, localAcuityIndex, calibrator));
+                    float updatedSizeUp = optotypeUtils.sizeOptotype(distance, localAcuityIndex, (float) calibrator, this);
+                    Log.d("ExhibitionActivity", "Updated optotype size on UP: " + updatedSizeUp);
+                    lettersText.setTextSize(TypedValue.COMPLEX_UNIT_PX, updatedSizeUp);
                     optotypeUtils.setLocalAcuityIndex(localAcuityIndex);
                     optotypeUtils.updateAcuityDisplay();
                 }
@@ -67,7 +83,9 @@ public class ExhibitionActivity extends AppCompatActivity {
                 lettersText.setText(optotypeUtils.generateOptotypes(mode));
                 if (localAcuityIndex > 0) {
                     localAcuityIndex--;
-                    lettersText.setTextSize(optotypeUtils.sizeOptotype(distance, localAcuityIndex, calibrator));
+                    float updatedSizeDown = optotypeUtils.sizeOptotype(distance, localAcuityIndex, (float) calibrator, this);
+                    Log.d("ExhibitionActivity", "Updated optotype size on DOWN: " + updatedSizeDown);
+                    lettersText.setTextSize(TypedValue.COMPLEX_UNIT_PX, updatedSizeDown);
                     optotypeUtils.setLocalAcuityIndex(localAcuityIndex);
                     optotypeUtils.updateAcuityDisplay();
                 }

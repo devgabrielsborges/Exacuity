@@ -3,16 +3,16 @@ package com.example.exacuity.utils;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.TypedValue;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+import com.example.exacuity.activities.ExhibitionActivity;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 public class OptotypeUtils {
-    // Instance fields (state)
     private int localAcuityIndex;
     private final TextView acuityText;
     private final TextView percentageText;
@@ -31,17 +31,51 @@ public class OptotypeUtils {
         this.localAcuityIndex = localAcuityIndex;
     }
 
-    public float sizeOptotype(float distance, int acuity_index, int calibrator) {
+    public float sizeOptotype(float distance, int acuity_index, float calibratorMm, ExhibitionActivity context) {
         String acuityStr = ExhibitionUtils.exhibitionAcuities[acuity_index];
         String[] parts = acuityStr.split("/");
-        int acuity = Integer.parseInt(parts[1]); // using denominator
-        return (float) (0.0725 * distance * acuity * 3.779 * 50 / calibrator);
+        int acuityDenom = Integer.parseInt(parts[1]);
+
+        double letterAngleRad = (acuityDenom / 20.0) * Math.toRadians(5.0 / 60.0);
+
+        double sizeMeters = 2 * distance * Math.tan(letterAngleRad / 2);
+
+        double sizeMm = sizeMeters * 1000;
+
+        double adjustedSizeMm = sizeMm * (calibratorMm / 80.0);
+
+        float sizePx = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_MM,
+                (float) adjustedSizeMm,
+                context.getResources().getDisplayMetrics()
+        );
+
+        if (sizePx < 1.0f) {
+            sizePx = 1.0f;
+        }
+
+        return sizePx;
     }
 
     public String generateOptotypes(int mode) {
         char[] charSet = ExhibitionUtils.getCharSet(mode);
-        float lines = countLines(lettersText);
-        int length = getOptotypeQuantity(lines);
+
+        int availableWidth = lettersText.getWidth();
+        if (availableWidth <= 0) {
+            float typicalLetterWidth = lettersText.getPaint().measureText("A");
+            availableWidth = (int) (5 * typicalLetterWidth);
+        }
+        String typicalLetter = "E";
+        float letterWidth = lettersText.getPaint().measureText(typicalLetter);
+
+        float additionalSpacing = lettersText.getLetterSpacing() * lettersText.getTextSize();
+        float fullLetterWidth = letterWidth + additionalSpacing;
+
+        int maxLetters = (int) (availableWidth / fullLetterWidth);
+        maxLetters = Math.max(maxLetters, 1);
+
+        int length = Math.min(maxLetters, 5);
+
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
         symbols = new String[length];
@@ -53,29 +87,31 @@ public class OptotypeUtils {
             char letter = charSet[randomIndex];
 
             int frequency = frequencyMap.getOrDefault(letter, 0);
-            if (frequency < 2) { // allow at most two repetitions
-                sb.append(letter);
-                symbols[count] = String.valueOf(letter);
-                frequencyMap.put(letter, frequency + 1);
-                count++;
+            switch (mode) {
+                case 0:
+                case 1:
+                case 2:
+                case 5:
+                    if (frequency == 0) {
+                        sb.append(letter);
+                        symbols[count] = String.valueOf(letter);
+                        frequencyMap.put(letter, frequency + 1);
+                        count++;
+                    }
+                    break;
+                default:
+                    if (frequency < 2) {  // Max 2 repetitions
+                        sb.append(letter);
+                        symbols[count] = String.valueOf(letter);
+                        frequencyMap.put(letter, frequency + 1);
+                        count++;
+                    }
+
             }
         }
 
-        // Reset currentIndex when generating a new optotype string.
         currentIndex = -1;
         return sb.toString();
-    }
-
-    private int getOptotypeQuantity(float lines) {
-        if (lines > 0.5f && lines <= 1.5f) return 5;
-        else if (lines <= 2.5f) return 4;
-        else if (lines <= 3.5f) return 2;
-        return 1;
-    }
-
-    private float countLines(@NonNull TextView textView) {
-        if (textView.getLayout() != null) return textView.getLineCount();
-        return (float) textView.getHeight() / textView.getLineHeight();
     }
 
     public void updateAcuityDisplay() {
@@ -96,23 +132,18 @@ public class OptotypeUtils {
             return;
 
         if (currentIndex == -1) {
-            // From initial state, choose starting symbol based on direction.
             currentIndex = (direction == 1) ? 0 : symbols.length - 1;
         } else {
             if (direction == -1) {
-                // Left arrow: reverse cycle.
                 currentIndex = (currentIndex == 0) ? -1 : currentIndex - 1;
             } else if (direction == 1) {
-                // Right arrow: forward cycle.
                 currentIndex = (currentIndex == symbols.length - 1) ? -1 : currentIndex + 1;
             }
         }
 
         if (currentIndex == -1) {
-            // Reset state: show all symbols.
             lettersText.setText(joinSymbols());
         } else {
-            // Build a SpannableString preserving symbol positions.
             StringBuilder sb = new StringBuilder();
             int[] startIndices = new int[symbols.length];
             int[] endIndices = new int[symbols.length];
@@ -121,9 +152,7 @@ public class OptotypeUtils {
                 sb.append(symbols[i]);
                 endIndices[i] = sb.length();
             }
-
             SpannableString spannable = new SpannableString(sb.toString());
-            // Hide all symbols except the selected one.
             for (int i = 0; i < symbols.length; i++) {
                 if (i != currentIndex) {
                     spannable.setSpan(

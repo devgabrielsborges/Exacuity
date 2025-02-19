@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,9 +17,11 @@ public class ContrastActivity extends AppCompatActivity {
     private TextView logCSText;
     private TextView contrastText;
     private OptotypeUtils optotypeUtils;
-
-    private int contrastIndex = 2; // starting index
+    private int contrastIndex = 6; // starting index
     private final int maxIndex = ExhibitionUtils.contrastValues.length - 1;
+
+    private float distance;
+    private int calibrator; // Default calibrator (mm) is 80
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +30,45 @@ public class ContrastActivity extends AppCompatActivity {
 
         SharedPreferences prefs = getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         int localAcuityIndex = prefs.getInt("acuity_index", 0);
-        float distance = prefs.getFloat("distance", 4.0f);
-        int calibrator = prefs.getInt("e_height", 80);
+        distance = prefs.getFloat("distance", 4.0f);
+        calibrator = prefs.getInt("e_height", 80);
 
         logCSText = findViewById(R.id.text_logcs);
         contrastText = findViewById(R.id.text_percentage);
         lettersText = findViewById(R.id.text_letras);
 
         optotypeUtils = new OptotypeUtils(null, logCSText, lettersText, localAcuityIndex);
-        lettersText.setText(optotypeUtils.generateOptotypes(0));
-        lettersText.setTextSize((float) (0.0725 * distance * 60 * 3.779 * 50 / calibrator));
 
-        updateContrastDisplay();
+        lettersText.post(() -> {
+            lettersText.setText(optotypeUtils.generateOptotypes(0));
+            lettersText.setTextSize((float) (0.0725 * distance * 60 * 3.779 * 50 / calibrator));
+            updateContrastDisplay();
+
+            new Handler().postDelayed(
+                    () -> lettersText.setText(optotypeUtils.generateOptotypes(0)), 0
+            );
+        });
+    }
+
+    @SuppressLint("DefaultLocale")
+    private void updateContrastDisplay() {
+        float contrast = ExhibitionUtils.contrastValues[contrastIndex];
+        int alpha = (int) (contrast * 255);
+        if (alpha > 255) {
+            alpha = 255;
+        }
+        int color = (alpha << 24);
+        lettersText.setTextColor(color);
+
+        float logCS = ExhibitionUtils.logCSValues[contrastIndex];
+        logCSText.setText(String.format("logCS: %.2f", logCS));
+
+        int percent = Math.round(contrast * 100);
+        contrastText.setText(String.format("Contraste: %d%%", percent));
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
         switch(keyCode) {
             case KeyEvent.KEYCODE_DPAD_UP:
                 if (contrastIndex < maxIndex) {
@@ -68,23 +93,5 @@ public class ContrastActivity extends AppCompatActivity {
             default:
                 return super.onKeyDown(keyCode, event);
         }
-    }
-
-    @SuppressLint("DefaultLocale")
-    private void updateContrastDisplay() {
-        float contrast = ExhibitionUtils.contrastValues[contrastIndex];
-        // Map the contrast value to an alpha value for lettersText.
-        int alpha = (int)(contrast * 255);
-        if (alpha > 255) {
-            alpha = 255;
-        }
-        int color = (alpha << 24); // Builds ARGB with computed alpha and black RGB.
-        lettersText.setTextColor(color);
-
-        float logCS = ExhibitionUtils.logCSValues[contrastIndex];
-        logCSText.setText(String.format("logCS: %.2f", logCS));
-
-        int percent = Math.round(contrast * 100);
-        contrastText.setText(String.format("Contraste: %d%%", percent));
     }
 }
