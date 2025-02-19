@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.exacuity.R;
 import com.example.exacuity.adapters.GridAdapter;
+import com.example.exacuity.utils.ExhibitionUtils;
 import com.example.exacuity.utils.SettingsUtils;
+
+// TODO: define sizes of optotypes
 
 public class MainActivity extends AppCompatActivity { // Changed superclass
 
@@ -24,8 +27,10 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SettingsUtils.initializeDefaultSettings(this);
+        SettingsUtils.initializeSettings(this);
         setTitleName();
+
+        ExhibitionUtils.startDefaultActivity(this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 5)); // 5 columns
@@ -51,26 +56,7 @@ public class MainActivity extends AppCompatActivity { // Changed superclass
     }
 
     private @NonNull GridAdapter getGridAdapter() {
-        int[] iconIds = {
-                R.drawable.icon_g1,
-                R.drawable.icon_g2,
-                R.drawable.icon_g3,
-                R.drawable.icon_g4,
-                R.drawable.icon_g5,
-                R.drawable.icon_g6,
-                R.drawable.icon_g7,
-                R.drawable.icon_g8,
-                R.drawable.icon_g9,
-                R.drawable.icon_g10,
-                R.drawable.icon_g11,
-                R.drawable.icon_g12,
-                R.drawable.icon_g13,
-                R.drawable.icon_g14,
-                R.drawable.icon_g15,
-
-        };
-
-        return new GridAdapter(this, iconIds);
+        return new GridAdapter(this, ExhibitionUtils.iconIds);
     }
 
     private void setTitleName() {

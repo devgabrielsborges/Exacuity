@@ -11,10 +11,11 @@ public class SettingsUtils {
 
     public static final String[] charts = {
             "Menu", "Letras", "Numeros", "Tumble E", "Figuras",
-            "C de Landolt", "Mao"
+            "C de Landolt", "Mao", "g7", "g8", "g9", "g10", "g11",
+            "g12", "g13", "g14", "g15"
     };
 
-    public static void initializeDefaultSettings(Context context) {
+    public static void initializeSettings(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("AppSettings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
@@ -56,6 +57,5 @@ public class SettingsUtils {
 
         activity.finish();
     }
-
 }
 
