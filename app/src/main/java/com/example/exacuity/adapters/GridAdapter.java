@@ -15,6 +15,7 @@ import com.example.exacuity.activities.ContrastActivity;
 import com.example.exacuity.activities.DaltonismActivity;
 import com.example.exacuity.activities.ExhibitionActivity;
 import com.example.exacuity.activities.ImageActivity;
+import com.example.exacuity.activities.SimulatorActivity;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;
@@ -76,6 +77,9 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
                 Intent templateIntent = new Intent(context, ImageActivity.class);
                 templateIntent.putExtra("image_source", R.drawable.template);
                 context.startActivity(templateIntent);
+            } else if (iconIds[position] == R.drawable.icon_g14) {
+                Intent simulatorIntent = new Intent(context, SimulatorActivity.class);
+                context.startActivity(simulatorIntent);
             } else if (iconIds[position] == R.drawable.icon_g15) {
                 Intent dialIntent = new Intent(context, ImageActivity.class);
                 dialIntent.putExtra("image_source", R.drawable.dial);
