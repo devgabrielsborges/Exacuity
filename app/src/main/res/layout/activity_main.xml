@@ -28,6 +28,8 @@
         android:layout_alignBottom="@+id/top_text"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        android:clipToPadding="false"
+        android:clipChildren="false"
         android:descendantFocusability="afterDescendants"
         android:focusable="true"
         android:focusableInTouchMode="true"
