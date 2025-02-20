@@ -55,7 +55,7 @@ public class ExhibitionUtils {
         }
     }
 
-    public static int[] iconIds = {
+    public static final int[] iconIds = {
             R.drawable.icon_g1,
             R.drawable.icon_g2,
             R.drawable.icon_g3,
