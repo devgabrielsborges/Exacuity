@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/optotypejuan"
             android:gravity="center"
-            android:letterSpacing="1.8"
+            android:letterSpacing="2.5"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="80sp"
