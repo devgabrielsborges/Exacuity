@@ -10,12 +10,11 @@
 
     <!-- Config cards -->
     <string name="configurations_title">Configurações</string>
-    <string name="od">OD</string>
-    <string name="oe">OE</string>
     <string name="right_arrow">right arrow</string>
     <string name="left_arrow">left arrow</string>
     <string name="image_desc">Image</string>
     <string name="glaucoma">Glaucoma</string>
     <string name="catarata">Catarata</string>
+    <string name="simulator">tree image</string>
 
 </resources>

@@ -10,9 +10,10 @@ import com.example.exacuity.activities.MainActivity;
 public class SettingsUtils {
 
     public static final String[] charts = {
-            "Menu", "Letras", "Numeros", "Tumble E", "Figuras",
-            "C de Landolt", "Mao", "g7", "g8", "g9", "g10", "g11",
-            "g12", "g13", "g14", "g15"
+            "Menu", "Letras", "Numeros", "Figuras 1", "Figuras 2",
+            "Tumbling E", "C de Landolt", "HTOV", "Mao", "Contraste",
+            "Ponto", "Daltonismo", "Grade", "Gabarito", "Simulador",
+            "Minutos"
     };
 
     public static void initializeSettings(Context context) {

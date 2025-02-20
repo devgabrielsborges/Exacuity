@@ -7,9 +7,10 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/simulaator_image"
+        android:id="@+id/simulator_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/simulator"
         android:scaleType="centerCrop"
         android:src="@drawable/tree" />
 
