@@ -54,7 +54,7 @@ public class OptotypeUtils {
             sizePx = 1.0f;
         }
 
-        return sizePx;
+        return sizePx * 1.1f;
     }
 
     public String generateOptotypes(int mode) {
@@ -91,7 +91,6 @@ public class OptotypeUtils {
                 case 0:
                 case 1:
                 case 2:
-                case 5:
                     if (frequency == 0) {
                         sb.append(letter);
                         symbols[count] = String.valueOf(letter);

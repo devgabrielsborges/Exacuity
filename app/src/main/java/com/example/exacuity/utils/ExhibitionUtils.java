@@ -143,7 +143,7 @@ public class ExhibitionUtils {
                 break;
             case 5:
                 charSet = new char[] {
-                        'a', 'b', 'c', 'd', 'e', 'f'
+                        'a', 'b', 'c', 'd'
                 };
                 break;
             case 6:
