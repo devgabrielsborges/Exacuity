@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="centerCrop">
+    <item android:drawable="@color/button_focused_color"/>
+    <item android:drawable="@drawable/fb_banner"/>
+</layer-list>
