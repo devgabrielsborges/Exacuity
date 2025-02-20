@@ -1,9 +1,5 @@
 <resources>
 
-    <style name="Theme.Exacuity" parent="@style/Theme.Leanback">
-        <item name="android:buttonStyle">@style/RoundedButtonStyle</item>
-    </style>
-
     <style name="RoundedButtonStyle">RoundedButtonStyle
         <item name="android:background">@drawable/rounded_button_background</item>
         <item name="android:textColor">@android:color/white</item>

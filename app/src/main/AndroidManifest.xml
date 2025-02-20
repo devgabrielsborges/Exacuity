@@ -15,17 +15,15 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Exacuity">
+        android:theme="@style/SplashTheme">
         <activity
             android:name=".activities.MainActivity"
-            android:banner="@drawable/app_icon_your_company"
+            android:banner="@mipmap/ic_banner"
             android:exported="true"
-            android:icon="@drawable/app_icon_your_company"
-            android:logo="@drawable/app_icon_your_company"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:icon="@mipmap/ic_banner"
+            android:logo="@mipmap/ic_banner">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>

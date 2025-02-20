@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -22,6 +21,8 @@
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+
 
     <!-- Área Principal (LETRAS) -->
     <LinearLayout
@@ -54,32 +55,13 @@
         android:padding="0dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="start"
-            android:text="@string/od"
-            android:textColor="#FFA500"
-            android:textSize="18sp" />
-
-        <TextView
             android:id="@+id/text_percentual"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|center_vertical"
             android:textColor="@android:color/white"
             android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:text="@string/oe"
-            android:textAlignment="textEnd"
-            android:textColor="#00A86B"
-            android:textSize="18sp"
-            tools:ignore="RtlCompat" />
     </LinearLayout>
 </LinearLayout>
