@@ -1,4 +1,4 @@
-package com.example.exacuity.adapters;
+package com.borges.exacuity.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,9 +13,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.exacuity.R;
-import com.example.exacuity.utils.ExhibitionUtils;
-import com.example.exacuity.utils.SettingsUtils;
+import com.borges.exacuity.R;
+import com.borges.exacuity.utils.ExhibitionUtils;
+import com.borges.exacuity.utils.SettingsUtils;
 
 public class ConfigGridAdapter extends RecyclerView.Adapter<ConfigGridAdapter.ViewHolder> implements View.OnKeyListener {
     private final Context context;

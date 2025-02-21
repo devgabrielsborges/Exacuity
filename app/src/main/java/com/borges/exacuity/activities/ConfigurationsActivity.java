@@ -1,4 +1,4 @@
-package com.example.exacuity.activities;
+package com.borges.exacuity.activities;
 
 import android.os.Bundle;
 
@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.exacuity.R;
-import com.example.exacuity.adapters.ConfigGridAdapter;
+import com.borges.exacuity.R;
+import com.borges.exacuity.adapters.ConfigGridAdapter;
 
 public class ConfigurationsActivity extends AppCompatActivity {
     @Override

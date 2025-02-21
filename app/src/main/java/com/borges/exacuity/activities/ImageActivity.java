@@ -1,4 +1,4 @@
-package com.example.exacuity.activities;
+package com.borges.exacuity.activities;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.KeyEvent;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.exacuity.R;
+import com.borges.exacuity.R;
 
 public class ImageActivity extends AppCompatActivity {
 

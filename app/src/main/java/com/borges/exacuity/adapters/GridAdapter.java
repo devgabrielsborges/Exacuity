@@ -1,4 +1,4 @@
-package com.example.exacuity.adapters;
+package com.borges.exacuity.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.exacuity.R;
-import com.example.exacuity.utils.ExhibitionUtils;
+import com.borges.exacuity.R;
+import com.borges.exacuity.utils.ExhibitionUtils;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.ViewHolder> {
     private final Context context;

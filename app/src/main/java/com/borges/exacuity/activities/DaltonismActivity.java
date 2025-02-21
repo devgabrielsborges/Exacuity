@@ -1,4 +1,4 @@
-package com.example.exacuity.activities;
+package com.borges.exacuity.activities;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.exacuity.R;
-import com.example.exacuity.utils.ExhibitionUtils;
+import com.borges.exacuity.R;
+import com.borges.exacuity.utils.ExhibitionUtils;
 
 public class DaltonismActivity extends AppCompatActivity {
 

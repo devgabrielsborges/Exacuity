@@ -1,4 +1,4 @@
-package com.example.exacuity.activities;
+package com.borges.exacuity.activities;
 
 import android.animation.ObjectAnimator;
 import android.content.res.Resources;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.exacuity.R;
+import com.borges.exacuity.R;
 
 public class SimulatorActivity extends AppCompatActivity {
     private TextView cataractText;

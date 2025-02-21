@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.exacuity"
+    namespace = "com.borges.exacuity"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.exacuity"
+        applicationId = "com.borges.exacuity"
         minSdk = 29
         targetSdk = 35
         versionCode = 1

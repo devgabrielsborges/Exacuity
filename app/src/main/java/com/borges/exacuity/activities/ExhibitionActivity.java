@@ -1,4 +1,4 @@
-package com.example.exacuity.activities;
+package com.borges.exacuity.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.exacuity.R;
-import com.example.exacuity.utils.ExhibitionUtils;
-import com.example.exacuity.utils.OptotypeUtils;
+import com.borges.exacuity.R;
+import com.borges.exacuity.utils.ExhibitionUtils;
+import com.borges.exacuity.utils.OptotypeUtils;
 
 public class ExhibitionActivity extends AppCompatActivity {
 

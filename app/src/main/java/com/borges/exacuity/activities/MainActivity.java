@@ -1,4 +1,4 @@
-package com.example.exacuity.activities;
+package com.borges.exacuity.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,10 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.exacuity.R;
-import com.example.exacuity.adapters.GridAdapter;
-import com.example.exacuity.utils.ExhibitionUtils;
-import com.example.exacuity.utils.SettingsUtils;
+import com.borges.exacuity.R;
+import com.borges.exacuity.adapters.GridAdapter;
+import com.borges.exacuity.utils.ExhibitionUtils;
+import com.borges.exacuity.utils.SettingsUtils;
 
 // TODO: define sizes of optotypes
 

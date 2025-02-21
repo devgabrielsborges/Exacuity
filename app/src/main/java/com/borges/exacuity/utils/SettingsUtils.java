@@ -1,11 +1,11 @@
-package com.example.exacuity.utils;
+package com.borges.exacuity.utils;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.exacuity.activities.MainActivity;
+import com.borges.exacuity.activities.MainActivity;
 
 public class SettingsUtils {
 
