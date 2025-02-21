@@ -1,4 +1,4 @@
-package com.example.exacuity.utils;
+package com.borges.exacuity.utils;
 
 import android.graphics.Color;
 import android.text.SpannableString;
@@ -6,7 +6,7 @@ import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
 import android.widget.TextView;
 
-import com.example.exacuity.activities.ExhibitionActivity;
+import com.borges.exacuity.activities.ExhibitionActivity;
 
 import java.util.HashMap;
 import java.util.Map;

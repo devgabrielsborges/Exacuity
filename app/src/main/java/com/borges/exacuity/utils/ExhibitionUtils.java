@@ -1,15 +1,15 @@
-package com.example.exacuity.utils;
+package com.borges.exacuity.utils;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.exacuity.R;
-import com.example.exacuity.activities.ContrastActivity;
-import com.example.exacuity.activities.DaltonismActivity;
-import com.example.exacuity.activities.ExhibitionActivity;
-import com.example.exacuity.activities.ImageActivity;
-import com.example.exacuity.activities.SimulatorActivity;
+import com.borges.exacuity.R;
+import com.borges.exacuity.activities.ContrastActivity;
+import com.borges.exacuity.activities.DaltonismActivity;
+import com.borges.exacuity.activities.ExhibitionActivity;
+import com.borges.exacuity.activities.ImageActivity;
+import com.borges.exacuity.activities.SimulatorActivity;
 
 public class ExhibitionUtils {
     public static void startDefaultActivity(Context context) {
